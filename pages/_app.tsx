@@ -33,7 +33,15 @@ const AppWithTranslation = appWithTranslation(({ Component, pageProps, router }:
     // const locale = getSystemLanguage()
 
     // Set <html lang="en" />
-    const _locale = pathLocale || navigator.language || 'zh-HK'
+    const locale_map: any = {
+      'zh': 'zh-CN',
+      'zh-CN': 'zh-CN',
+      'en': 'en',
+      'en-US': 'en',
+      'zh-HK': 'zh-HK',
+      'zh-TW': 'zh-HK',
+    }
+    const _locale = pathLocale || locale_map[navigator.language] || 'zh-HK'
     const html = document.querySelector('html')
     if (html) {
       html?.setAttribute('lang', _locale)

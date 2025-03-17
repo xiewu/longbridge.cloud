@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import { Block } from '../block'
 import { BecomeAmbassadorButton } from '../become-ambassador-button'
-import { useTranslation } from 'next-i18next'
+import { Trans, useTranslation } from 'next-i18next'
 import styles from '../bg.module.scss'
 import classNames from 'classnames'
 
@@ -37,7 +37,7 @@ const stepList = [
 const Step = ({ titleKey, descriptionKey, icon }: StepProps) => {
   const { t } = useTranslation('common')
   return (
-    <div className="flex flex-col gap-5 md:gap-6">
+    <div className="flex flex-1 flex-col gap-5 md:gap-6">
       <div>
         <img className="md:h-[68px] h-12" src={icon} alt={t(titleKey)} />
       </div>
@@ -74,7 +74,7 @@ export const HowToParticipate = () => {
         </div>
         <div className="mt-10">
           <BecomeAmbassadorButton
-            form="被邀请人-线索登记页"
+            form="推荐官计划主页"
             className="px-6 md:px-8 text-brand_color bg-white border-none py-2.5 h-auto font-medium text-sm  md:text-lg"
           />
         </div>

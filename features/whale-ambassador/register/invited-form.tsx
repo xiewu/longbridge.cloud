@@ -85,7 +85,7 @@ export const InvitedForm = ({
         validateMessages={{ required: t('whale-ambassador.field-required') }}
       >
         <Form.Item name="name" label={t('whale-ambassador.name')} required rules={[{ required: true }]}>
-          <Input placeholder={t('whale-ambassador.input-placeholder')} />
+          <Input placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.name') })} />
         </Form.Item>
         <Form.Item
           name="phone"
@@ -95,7 +95,9 @@ export const InvitedForm = ({
           rules={[{ required: true }, validatePhoneNumberRule]}
           validateTrigger={['onComplete', 'onChange']}
         >
-          <PhoneNumberInput />
+          <PhoneNumberInput
+            placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.invited-form.phone') })}
+          />
         </Form.Item>
         <Form.Item
           name="email"
@@ -108,16 +110,18 @@ export const InvitedForm = ({
             { type: 'email', message: t('whale-ambassador.invalid-email'), validateTrigger: ['onBlur'] },
           ]}
         >
-          <Input placeholder={t('whale-ambassador.input-placeholder')} />
+          <Input placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.work-email') })} />
         </Form.Item>
         <Form.Item name="company" label={t('whale-ambassador.company')} required rules={[{ required: true }]}>
-          <Input placeholder={t('whale-ambassador.input-placeholder')} />
+          <Input placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.company') })} />
         </Form.Item>
         <Form.Item name="position" label={t('whale-ambassador.position')} required rules={[{ required: true }]}>
-          <Input placeholder={t('whale-ambassador.input-placeholder')} />
+          <Input placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.position') })} />
         </Form.Item>
         <Form.Item name="area" label={t('whale-ambassador.invited-form.area')} required rules={[{ required: true }]}>
-          <Input placeholder={t('whale-ambassador.input-placeholder')} />
+          <Input
+            placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.invited-form.area') })}
+          />
         </Form.Item>
         <Form.Item
           name="appointmentDate"
@@ -168,7 +172,13 @@ export const InvitedForm = ({
           name="feedback"
           label={t('whale-ambassador.invited-form.feedback')}
         >
-          <Input.TextArea placeholder={t('whale-ambassador.input-placeholder')} maxLength={100} showCount />
+          <Input.TextArea
+            placeholder={t('whale-ambassador.input-placeholder', {
+              label: t('whale-ambassador.invited-form.feedback'),
+            })}
+            maxLength={100}
+            showCount
+          />
         </Form.Item>
       </Form>
       <div className="px-6 md:px-0 md:mt-5 flex-initial">
@@ -199,7 +209,9 @@ export const InvitedForm = ({
           loading={loading}
           block
           type="primary"
-          className="py-2 h-auto"
+          className={classNames('py-2 h-auto', {
+            ['  !bg-[#C5A4FA] !text-front-bg-color1']: !agree && useDefaultStyle,
+          })}
           htmlType="submit"
           onClick={handleFinish}
         >
@@ -215,7 +227,7 @@ export const InvitedFormModal = ({ referCode, name }: InvitedFormProps) => {
   const [open, setOpen] = useState(false)
   return (
     <div>
-      <Modal title={t('whale-ambassador.top-banner.invited.button')} open={open} onClose={() => setOpen(false)}>
+      <Modal title={t('whale-ambassador.top-banner.invited.form-title')} open={open} onClose={() => setOpen(false)}>
         <InvitedForm referCode={referCode} name={name} />
       </Modal>
       <Button
@@ -235,9 +247,9 @@ export const InvitedFormWithTitle = ({ referCode, name }: InvitedFormProps) => {
     <Block id="invited-form-block" className="hidden md:block max-w-[880px] mx-auto bg-[#F7F6F9] py-11">
       <div className="flex flex-col md:mb-8">
         <h2 className=" text-text-color-1 text-3xl md:text-4xl font-semibold mb-1">
-          {t('whale-ambassador.top-banner.invited.button')}
+          {t('whale-ambassador.top-banner.invited.form-title')}
         </h2>
-        <p className=" text-base leading-[1.75em] text-text-color-1-supplement font-normal">
+        <p className="text-base leading-[1.75em] text-text-color-1-supplement font-normal">
           {t('whale-ambassador.invited-form.description')}
         </p>
       </div>

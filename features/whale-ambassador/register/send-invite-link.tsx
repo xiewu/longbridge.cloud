@@ -24,7 +24,6 @@ export const SendInviteLink = () => {
     <div>
       <Modal open={open} onClose={() => setOpen(false)} title={t('whale-ambassador.get-invite-link')}>
         <div className="flex flex-col flex-1 items-start">
-          <h2 className="text-xl font-semibold md:hidden mb-2 px-6">{t('whale-ambassador.enter-registered-email')}</h2>
           <div className="text-text_color_1_supplement px-6 text-xs ">
             {t('whale-ambassador.enter-registered-email-desc')}
           </div>

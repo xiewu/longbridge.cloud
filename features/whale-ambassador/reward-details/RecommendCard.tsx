@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card } from './Card'
 import { RecommendRewardList } from './RecommendRewardList'
-import { useTranslation } from 'next-i18next'
+import { Trans, useTranslation } from 'next-i18next'
 import styles from './index.module.scss'
 import classNames from 'classnames'
 
@@ -18,16 +18,33 @@ export const RecommendCard = () => {
         />
       }
     >
-      <p>
-        <span className="text-5xl font-bold text-brand_color">{(300).toLocaleString()}</span>
-        <span className="text-3xl font-bold text-brand_color ml-2">{`HKD`}</span>
-        <span className="text-text-color-1 text-base font-medium ml-2 md:ml-3">
-          {t('whale-ambassador.starting-more-referrals')}
-        </span>
+      <p className="text-text-color-1 text-base font-medium">
+        <Trans
+          i18nKey="whale-ambassador.starting-more-referrals"
+          components={{
+            amount: <span className="text-5xl font-bold text-brand_color" />,
+            currency: <span className="text-3xl font-bold text-brand_color ml-2" />,
+          }}
+        />
       </p>
-      <p className="text-sm md:text-base  text-text-color-1-supplement whitespace-pre-wrap">
-        {t('whale-ambassador.recommend-reward-desc', { amount: '300 HKD', amount2: '50 SGD' })}
-      </p>
+      <div className="text-sm md:text-base  text-text-color-1-supplement whitespace-pre-wrap">
+        <p>
+          <Trans
+            i18nKey="whale-ambassador.recommend-reward-desc1"
+            components={{
+              s: <span className="font-semibold text-[#1C1F23]" />,
+            }}
+          />
+        </p>
+        <p>
+          <Trans
+            i18nKey="whale-ambassador.recommend-reward-desc2"
+            components={{
+              s: <span className="font-semibold text-[#1C1F23]" />,
+            }}
+          />
+        </p>
+      </div>
       <RecommendRewardList />
     </Card>
   )

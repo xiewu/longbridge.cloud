@@ -54,29 +54,32 @@ export const RecommendForm = ({ onSuccess, referCode }: RecommendFormProps) => {
         className={classNames(styles.form)}
         validateMessages={{ required: t('whale-ambassador.field-required') }}
       >
-        <Form.Item
-          name="company"
-          label={i18n?.t('whale-ambassador.recommend-company')}
-          required
-          rules={[{ required: true }]}
-        >
-          <Input placeholder={i18n?.t('whale-ambassador.input-placeholder')} />
+        <Form.Item name="company" label={t('whale-ambassador.recommend-company')} required rules={[{ required: true }]}>
+          <Input
+            placeholder={t('whale-ambassador.input-placeholder', {
+              label: t('whale-ambassador.recommend-company'),
+            })}
+          />
         </Form.Item>
         <Form.Item name="name" label={t('whale-ambassador.contact-name')} required rules={[{ required: true }]}>
-          <Input placeholder={t('whale-ambassador.input-placeholder')} />
+          <Input placeholder={t('whale-ambassador.input-placeholder', t('whale-ambassador.contact-name'))} />
         </Form.Item>
         <Form.Item name="position" label={t('whale-ambassador.contact-position')} required rules={[{ required: true }]}>
-          <Input placeholder={t('whale-ambassador.input-placeholder')} />
+          <Input
+            placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.contact-position') })}
+          />
         </Form.Item>
         <Form.Item
           name="phone"
-          label={t('whale-ambassador.contact-phone')}
+          label={t('whale-ambassador.mobile-phone')}
           required
           validateFirst
           rules={[{ required: true }, validatePhoneNumberRule]}
           validateTrigger={['onComplete', 'onChange']}
         >
-          <PhoneNumberInput />
+          <PhoneNumberInput
+            placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.mobile-phone') })}
+          />
         </Form.Item>
         <Form.Item
           name="office_phone"
@@ -86,11 +89,13 @@ export const RecommendForm = ({ onSuccess, referCode }: RecommendFormProps) => {
           rules={[{ required: true }, validatePhoneNumberRule]}
           validateTrigger={['onComplete', 'onChange']}
         >
-          <PhoneNumberInput />
+          <PhoneNumberInput
+            placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.office-phone') })}
+          />
         </Form.Item>
         <Form.Item
           name="email"
-          label={t('')}
+          label={t('whale-ambassador.work-email')}
           validateTrigger={['onBlur']}
           validateFirst
           required
@@ -99,10 +104,10 @@ export const RecommendForm = ({ onSuccess, referCode }: RecommendFormProps) => {
             { type: 'email', message: t('whale-ambassador.invalid-email'), validateTrigger: ['onBlur'] },
           ]}
         >
-          <Input placeholder={t('whale-ambassador.input-placeholder')} />
+          <Input placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.work-email') })} />
         </Form.Item>
         <Form.Item name="area" label={t('whale-ambassador.company-area')} required rules={[{ required: true }]}>
-          <Input placeholder={t('whale-ambassador.input-placeholder')} />
+          <Input placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.company-area') })} />
         </Form.Item>
         <Form.Item
           className="!mb-2"
@@ -125,7 +130,7 @@ export const RecommendForm = ({ onSuccess, referCode }: RecommendFormProps) => {
             noStyle
             rules={[{ required: true, message: t('whale-ambassador.input-placeholder') }]}
           >
-            <Input placeholder={t('whale-ambassador.input-placeholder')} />
+            <Input placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.others') })} />
           </Form.Item>
         )}
       </Form>

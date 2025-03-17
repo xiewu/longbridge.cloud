@@ -69,8 +69,8 @@ export const InvitedTopBanner = ({ name, code }: InvitedTopBannerProps) => {
                       <div className="space-y-4">
                         {features.map((feature, index) => (
                           <div key={index} className="flex items-start space-x-3 md:space-x-4">
-                            <div className="text-brand_color text-xl font-semibold">
-                              <img className="w-7 h-7 md:w-8 md:h-8 " src={feature.icon} alt={feature.title} />
+                            <div className="text-brand_color text-xl font-semibold flex-shrink-0">
+                              <img className="w-7 md:w-8 " src={feature.icon} alt={feature.title} />
                             </div>
                             <div className="space-y-1 md:space-y-2.5">
                               <h3 className="font-medium text-xl md:text-2xl text-text-color-1">{feature.title}</h3>

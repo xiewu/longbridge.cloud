@@ -50,23 +50,25 @@ export const RegisterFrom = (props: RegisterFromProps) => {
         validateMessages={{ required: t('whale-ambassador.field-required') }}
       >
         <Form.Item name="name" label={t('whale-ambassador.name')} required rules={[{ required: true }]}>
-          <Input placeholder={t('whale-ambassador.input-placeholder')} />
+          <Input placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.name') })} />
         </Form.Item>
         <Form.Item name="company" label={t('whale-ambassador.company')} required rules={[{ required: true }]}>
-          <Input placeholder={t('whale-ambassador.input-placeholder')} />
+          <Input placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.company') })} />
         </Form.Item>
         <Form.Item name="position" label={t('whale-ambassador.position')} required rules={[{ required: true }]}>
-          <Input placeholder={t('whale-ambassador.input-placeholder')} />
+          <Input placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.position') })} />
         </Form.Item>
         <Form.Item
           name="phone"
-          label={t('whale-ambassador.contact-phone')}
+          label={t('whale-ambassador.mobile-phone')}
           required
           validateFirst
           rules={[{ required: true }, validatePhoneNumberRule]}
           validateTrigger={['onComplete', 'onChange']}
         >
-          <PhoneNumberInput />
+          <PhoneNumberInput
+            placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.mobile-phone') })}
+          />
         </Form.Item>
         <Form.Item
           name="email"
@@ -80,7 +82,7 @@ export const RegisterFrom = (props: RegisterFromProps) => {
           ]}
         >
           <EmailVerificationInput
-            placeholder={t('whale-ambassador.input-placeholder')}
+            placeholder={t('whale-ambassador.email-verification-code-placeholder')}
             onSendCode={handleSendEmailCode}
           />
         </Form.Item>
@@ -90,7 +92,12 @@ export const RegisterFrom = (props: RegisterFromProps) => {
           required
           rules={[{ required: true }]}
         >
-          <Input type="number" placeholder={t('whale-ambassador.input-placeholder')} />
+          <Input
+            type="number"
+            placeholder={t('whale-ambassador.input-placeholder', {
+              label: t('whale-ambassador.email-verification-code'),
+            })}
+          />
         </Form.Item>
       </Form>
       <div className="px-6">

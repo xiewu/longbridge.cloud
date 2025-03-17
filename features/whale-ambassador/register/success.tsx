@@ -48,7 +48,7 @@ export const RegisterSuccess = (props: RegisterSuccessProps) => {
         />
       </div>
 
-      <h2 className="text-lg text-grey-9 font-semibold">{t('登记成功')}</h2>
+      <h2 className="text-lg text-grey-9 font-semibold">{t('whale-ambassador.register-success')}</h2>
       <p className="text-text-color-2">
         <span>{t('whale-ambassador.register-success-email', { email: referrer.email })}</span>
       </p>

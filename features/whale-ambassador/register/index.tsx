@@ -11,7 +11,15 @@ interface RegisterFormModalProps extends ModalProps {}
 
 export const RegisterFormModal = (props: RegisterFormModalProps) => {
   const [action, setAction] = useState<'recommend' | 'share' | undefined>()
-  const [referrer, setReferrer] = useState<Referrer | null>()
+  const [referrer, setReferrer] = useState<Referrer | null>({
+    name: '2344242',
+    company: '1435315314',
+    position: '134515',
+    phone: '852-13451345',
+    email: '4353145135@qq.com',
+    vcode: '164416',
+    code: 'cvbs1o5h2omu7rag5m20',
+  })
   const { t } = useTranslation('common')
   return (
     <Modal {...props} title={t('whale-ambassador.become-ambassador')}>

@@ -30,7 +30,8 @@ export const Modal = (props: ModalProps) => {
                 )}
               >
                 {title && (
-                  <h2 className="md:ml-0 md:mr-auto items-start text-lg my-2 md:my-0 md:text-xl md:w-full font-medium">
+                  // 首字母大写 tailwind
+                  <h2 className="  capitalize  md:ml-0 md:mr-auto items-start text-lg my-2 md:my-0 md:text-xl md:w-full font-medium">
                     {title}
                   </h2>
                 )}

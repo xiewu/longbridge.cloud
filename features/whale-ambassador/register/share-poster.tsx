@@ -20,27 +20,33 @@ interface SharePosterProps {
 }
 
 const posterWidth = 320
-const posterHeight = 555
+const posterHeight = 570
 
 export const SharePoster = ({ className, name, code }: SharePosterProps) => {
-  const { t } = useTranslation('common')
+  const { t, i18n } = useTranslation('common')
   const [innerWidth, setInnerWidth] = useState(isServer() ? 375 : window.innerWidth)
   const [innerHeight, setInnerHeight] = useState(isServer() ? 667 + 150 : window.innerHeight)
   const isMobile = innerWidth < 768
+  const posterHeight = useMemo(() => {
+    if (i18n.language === 'en') {
+      return 585
+    }
+    return 570
+  }, [i18n.language])
 
   const scale = useMemo(() => {
     if (isMobile) {
       return Math.min(1, (innerHeight - 150) / posterHeight)
     }
     return 0.75
-  }, [isMobile, innerHeight])
+  }, [isMobile, innerHeight, posterHeight])
 
   const { width, height } = useMemo(() => {
     return {
       width: posterWidth * scale,
       height: posterHeight * scale,
     }
-  }, [scale])
+  }, [posterHeight, scale])
 
   useEffect(() => {
     const handleResize = () => {
@@ -75,9 +81,11 @@ export const SharePoster = ({ className, name, code }: SharePosterProps) => {
         <div className="relative p-4 text-front-bg-color1 h-[176px]">
           {/* 用户名称 */}
           <p className="text-sm  font-medium text-brand_color mb-1">{name}</p>
-
           {/* 标题 */}
           <h2 className="text-xl  font-medium">{t('whale-ambassador.invite-experience-service')}</h2>
+          <p className="text-xs text-[rgba(28,31,35,0.60)] font-medium mb-1">
+            {t('whale-ambassador.invite-experience-service-desc')}
+          </p>
           {/* 底部信息 */}
           <div className="flex items-end justify-between border-t pt-4 mt-4">
             <div>

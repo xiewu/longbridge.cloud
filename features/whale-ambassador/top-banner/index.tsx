@@ -29,7 +29,7 @@ export const TopBanner = () => {
                 </div>
                 <div className="space-y-4">
                   <BecomeAmbassadorButton
-                    form="被邀请人-线索登记页"
+                    form="推荐官计划主页"
                     className="px-4 py-2.5 h-auto font-medium  text-sm  md:text-xl"
                     type="primary"
                   />

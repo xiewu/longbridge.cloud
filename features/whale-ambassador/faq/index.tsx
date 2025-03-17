@@ -20,7 +20,12 @@ export const FAQ = () => {
     },
     {
       title: t('whale-ambassador.faq.q3.title'),
-      content: t('whale-ambassador.faq.q3.content'),
+      content: (
+        <Trans
+          i18nKey="whale-ambassador.faq.q3.content"
+          components={{ ul: <ul className=" list-disc list-inside" />, li: <li className="ml-1" /> }}
+        />
+      ),
     },
     {
       title: t('whale-ambassador.faq.q4.title'),
@@ -32,15 +37,7 @@ export const FAQ = () => {
     },
     {
       title: t('whale-ambassador.faq.q6.title'),
-      content: (
-        <>
-          {t('whale-ambassador.faq.q6.content.part1')}
-          <Trans i18nKey="whale-ambassador.faq.q6.content.part2">
-            <Mail />
-          </Trans>
-          {t('whale-ambassador.faq.q6.content.part3')}
-        </>
-      ),
+      content: <Trans i18nKey="whale-ambassador.faq.q6.content" components={{ mail: <Mail /> }} />,
     },
     {
       title: t('whale-ambassador.faq.q7.title'),
@@ -92,7 +89,7 @@ export const FAQ = () => {
             header={<h3 className="max-w-[85%] text-text-color-1 font-medium text-lg">{question.title}</h3>}
             key={index}
           >
-            <p className="text-base leading-7 md:left-6 text-text-color-1-supplement">{question.content}</p>
+            <p className="text-base leading-7 md:left-6 text-text-color-1-supplement font-normal">{question.content}</p>
           </Panel>
         ))}
       </Collapse>

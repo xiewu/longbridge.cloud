@@ -129,7 +129,11 @@ export const InvitedForm = ({
           required
           rules={[{ required: true }]}
         >
-          <DatePicker className="w-full" placeholder={t('whale-ambassador.invited-form.select-placeholder')} />
+          <DatePicker
+            className="w-full"
+            format="l"
+            placeholder={t('whale-ambassador.invited-form.select-placeholder')}
+          />
         </Form.Item>
         <Form.Item
           name="appointmentTime"

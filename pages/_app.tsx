@@ -22,6 +22,11 @@ import 'moment/locale/zh-hk'
 import Script from 'next/script'
 import { useRouter } from 'next/router'
 
+const server_url =
+  process.env.PROXY === 'prod'
+    ? 'https://event-tracking.lbkrs.com/sa?project=whale_pro'
+    : 'https://event-forward.longbridge.xyz/sa?project=whale_test'
+
 const AppWithTranslation = appWithTranslation(({ Component, pageProps, router }: AppProps) => {
   const nextRouter = (
     <StaticRouter location={router.asPath}>
@@ -116,7 +121,7 @@ const AppWithTranslation = appWithTranslation(({ Component, pageProps, router }:
             __html: `
             const sensors = window['sensorsDataAnalytic201505'];
             sensors.init({
-              server_url: 'https://event-tracking.lbctrl.com/sa?project=whale_pro',
+              server_url: '${server_url}',
               heatmap:{scroll_notice_map:'not_collect'},
               is_track_single_page:true,
               use_client_time:true,

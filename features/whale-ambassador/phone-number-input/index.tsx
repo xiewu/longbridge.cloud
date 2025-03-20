@@ -3,8 +3,9 @@ import { Input, Select } from 'antd'
 import type { FormRule, InputRef, RefSelectProps } from 'antd'
 import styles from './index.module.scss'
 import classNames from 'classnames'
-import { isValidPhoneNumber } from 'libphonenumber-js/min'
+import { isValidPhoneNumber } from 'libphonenumber-js/max'
 import { i18n } from 'next-i18next'
+import { isServer } from '@/utils/common'
 
 interface PhoneNumberInputProps {
   id?: string
@@ -12,6 +13,18 @@ interface PhoneNumberInputProps {
   value?: string
   onChange?: (value: string) => void
   onComplete?: (value: string) => void
+}
+
+const languageDialCodeMap = {
+  'en': '65',
+  'zh': '86',
+  'zh-CN': '86',
+  'zh-HK': '852',
+  'zh-TW': '886',
+}
+
+const getDialCode = (language: string) => {
+  return languageDialCodeMap[language as keyof typeof languageDialCodeMap]
 }
 
 const COUNTRY_CODE_MAP_URL =
@@ -68,7 +81,8 @@ export const PhoneNumberInput = (props: PhoneNumberInputProps) => {
   const selectRef = useRef<RefSelectProps>(null)
   const inputRef = useRef<InputRef>(null)
 
-  const [countryCode, phoneNumber] = value?.split('-') || []
+  const [originCountryCode, phoneNumber] = value?.split('-') || []
+  const countryCode = originCountryCode || getDialCode(isServer() ? '' : navigator.language) || '852'
 
   const handleChange = useCallback(
     (value: string) => {
@@ -98,6 +112,7 @@ export const PhoneNumberInput = (props: PhoneNumberInputProps) => {
   useEffect(() => {
     fetchCountryCodeMap().then(data => {
       setCountryCodeList(data)
+      console.log(navigator.language)
     })
   }, [])
 

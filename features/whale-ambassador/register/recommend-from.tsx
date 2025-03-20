@@ -54,17 +54,32 @@ export const RecommendForm = ({ onSuccess, referCode }: RecommendFormProps) => {
         className={classNames(styles.form)}
         validateMessages={{ required: t('whale-ambassador.field-required') }}
       >
-        <Form.Item name="company" label={t('whale-ambassador.recommend-company')} required rules={[{ required: true }]}>
+        <Form.Item
+          name="company"
+          label={t('whale-ambassador.recommend-company')}
+          required
+          rules={[{ required: true, whitespace: true }]}
+        >
           <Input
             placeholder={t('whale-ambassador.input-placeholder', {
               label: t('whale-ambassador.recommend-company'),
             })}
           />
         </Form.Item>
-        <Form.Item name="name" label={t('whale-ambassador.contact-name')} required rules={[{ required: true }]}>
+        <Form.Item
+          name="name"
+          label={t('whale-ambassador.contact-name')}
+          required
+          rules={[{ required: true, whitespace: true }]}
+        >
           <Input placeholder={t('whale-ambassador.input-placeholder', t('whale-ambassador.contact-name'))} />
         </Form.Item>
-        <Form.Item name="position" label={t('whale-ambassador.contact-position')} required rules={[{ required: true }]}>
+        <Form.Item
+          name="position"
+          label={t('whale-ambassador.contact-position')}
+          required
+          rules={[{ required: true, whitespace: true }]}
+        >
           <Input
             placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.contact-position') })}
           />
@@ -74,7 +89,7 @@ export const RecommendForm = ({ onSuccess, referCode }: RecommendFormProps) => {
           label={t('whale-ambassador.mobile-phone')}
           required
           validateFirst
-          rules={[{ required: true }, validatePhoneNumberRule]}
+          rules={[{ required: true, whitespace: true }, validatePhoneNumberRule]}
           validateTrigger={['onComplete', 'onChange']}
         >
           <PhoneNumberInput
@@ -86,7 +101,7 @@ export const RecommendForm = ({ onSuccess, referCode }: RecommendFormProps) => {
           label={t('whale-ambassador.office-phone')}
           required
           validateFirst
-          rules={[{ required: true }, validatePhoneNumberRule]}
+          rules={[{ required: true, whitespace: true }, validatePhoneNumberRule]}
           validateTrigger={['onComplete', 'onChange']}
         >
           <PhoneNumberInput
@@ -100,13 +115,18 @@ export const RecommendForm = ({ onSuccess, referCode }: RecommendFormProps) => {
           validateFirst
           required
           rules={[
-            { required: true },
+            { required: true, whitespace: true },
             { type: 'email', message: t('whale-ambassador.invalid-email'), validateTrigger: ['onBlur'] },
           ]}
         >
           <Input placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.work-email') })} />
         </Form.Item>
-        <Form.Item name="area" label={t('whale-ambassador.company-area')} required rules={[{ required: true }]}>
+        <Form.Item
+          name="area"
+          label={t('whale-ambassador.company-area')}
+          required
+          rules={[{ required: true, whitespace: true }]}
+        >
           <Input placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.company-area') })} />
         </Form.Item>
         <Form.Item
@@ -114,7 +134,7 @@ export const RecommendForm = ({ onSuccess, referCode }: RecommendFormProps) => {
           name="services"
           label={t('whale-ambassador.interested-services')}
           required
-          rules={[{ required: true }]}
+          rules={[{ required: true, whitespace: true }]}
         >
           <AntdCheckbox.Group className="flex  md:flex-col flex-wrap gap-2">
             {serviceOptions.map(option => (
@@ -128,7 +148,7 @@ export const RecommendForm = ({ onSuccess, referCode }: RecommendFormProps) => {
           <Form.Item
             name="others"
             noStyle
-            rules={[{ required: true, message: t('whale-ambassador.input-placeholder') }]}
+            rules={[{ required: true, whitespace: true, message: t('whale-ambassador.input-placeholder') }]}
           >
             <Input placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.others') })} />
           </Form.Item>

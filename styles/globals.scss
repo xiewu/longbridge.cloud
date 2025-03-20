@@ -27,16 +27,19 @@ body {
     Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-* {
-  &::-webkit-scrollbar {
-    width: 2px;
-    height: 2px;
-  }
-  &::-webkit-scrollbar-thumb {
-    @apply rounded-md;
-    background-color: var(--border_color);
+@media (max-width: 768px) {
+  * {
+    &::-webkit-scrollbar {
+      width: 2px;
+      height: 2px;
+    }
+    &::-webkit-scrollbar-thumb {
+      @apply rounded-md;
+      background-color: var(--border_color);
+    }
   }
 }
+
 .text-text_brand_color {
   color: var(--brand_color);
 }

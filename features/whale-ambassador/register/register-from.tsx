@@ -8,7 +8,6 @@ import classNames from 'classnames'
 import styles from './form.module.scss'
 import { useTranslation, Trans } from 'next-i18next'
 import { PrivacyAgreement } from './privacy-agreement'
-import { Block } from '../block'
 
 interface RegisterFromProps {
   onSuccess?: (values: Referrer) => void
@@ -49,13 +48,28 @@ export const RegisterFrom = (props: RegisterFromProps) => {
         className={classNames(styles.form)}
         validateMessages={{ required: t('whale-ambassador.field-required') }}
       >
-        <Form.Item name="name" label={t('whale-ambassador.name')} required rules={[{ required: true }]}>
+        <Form.Item
+          name="name"
+          label={t('whale-ambassador.name')}
+          required
+          rules={[{ required: true, whitespace: true }]}
+        >
           <Input placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.name') })} />
         </Form.Item>
-        <Form.Item name="company" label={t('whale-ambassador.company')} required rules={[{ required: true }]}>
+        <Form.Item
+          name="company"
+          label={t('whale-ambassador.company')}
+          required
+          rules={[{ required: true, whitespace: true }]}
+        >
           <Input placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.company') })} />
         </Form.Item>
-        <Form.Item name="position" label={t('whale-ambassador.position')} required rules={[{ required: true }]}>
+        <Form.Item
+          name="position"
+          label={t('whale-ambassador.position')}
+          required
+          rules={[{ required: true, whitespace: true }]}
+        >
           <Input placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.position') })} />
         </Form.Item>
         <Form.Item
@@ -63,7 +77,7 @@ export const RegisterFrom = (props: RegisterFromProps) => {
           label={t('whale-ambassador.mobile-phone')}
           required
           validateFirst
-          rules={[{ required: true }, validatePhoneNumberRule]}
+          rules={[{ required: true, whitespace: true }, validatePhoneNumberRule]}
           validateTrigger={['onComplete', 'onChange']}
         >
           <PhoneNumberInput
@@ -77,26 +91,25 @@ export const RegisterFrom = (props: RegisterFromProps) => {
           validateFirst
           required
           rules={[
-            { required: true },
+            { required: true, whitespace: true },
             { type: 'email', message: t('whale-ambassador.invalid-email'), validateTrigger: ['onBlur'] },
           ]}
         >
-          <EmailVerificationInput
-            placeholder={t('whale-ambassador.email-verification-code-placeholder')}
-            onSendCode={handleSendEmailCode}
+          <Input
+            placeholder={t('whale-ambassador.input-placeholder', {
+              label: t('whale-ambassador.email-verification-code'),
+            })}
           />
         </Form.Item>
         <Form.Item
           name="vcode"
           label={t('whale-ambassador.email-verification-code')}
           required
-          rules={[{ required: true }]}
+          rules={[{ required: true, whitespace: true }]}
         >
-          <Input
-            type="number"
-            placeholder={t('whale-ambassador.input-placeholder', {
-              label: t('whale-ambassador.email-verification-code'),
-            })}
+          <EmailVerificationInput
+            placeholder={t('whale-ambassador.email-verification-code-placeholder')}
+            onSendCode={handleSendEmailCode}
           />
         </Form.Item>
       </Form>

@@ -3,7 +3,7 @@ import { Input, Select } from 'antd'
 import type { FormRule, InputRef, RefSelectProps } from 'antd'
 import styles from './index.module.scss'
 import classNames from 'classnames'
-import { isPossiblePhoneNumber } from 'libphonenumber-js/min'
+import { isValidPhoneNumber } from 'libphonenumber-js/min'
 import { i18n } from 'next-i18next'
 
 interface PhoneNumberInputProps {
@@ -48,7 +48,7 @@ const fetchCountryCodeMap = createFetchCountryCodeMap()
 const validatePhoneNumber = (phoneNumber: string, countryCode: string) => {
   if (!phoneNumber) return false
   if (!countryCode) return false
-  return isPossiblePhoneNumber(phoneNumber, { defaultCallingCode: countryCode })
+  return isValidPhoneNumber(phoneNumber, { defaultCallingCode: countryCode })
 }
 
 export const validatePhoneNumberRule: FormRule = {

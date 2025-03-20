@@ -149,7 +149,7 @@ const Navs = () => {
 
   return (
     <>
-      <div className={classNames(styles.navs, 'items-center gap-14 xl:gap-20 hidden md:flex')}>
+      <div className={classNames(styles.navs, 'items-center gap-8 lg:gap-14 xl:gap-20 hidden md:flex')}>
         {navs.map(nav => {
           return (
             <div
@@ -252,7 +252,7 @@ const Navs = () => {
 
 const Header: FC = () => {
   return (
-    <div className={classNames(styles.header, 'flex px-6 xl:px-10 py-4')}>
+    <div className={classNames(styles.header, 'flex px-6 xl:px-10 py-4 items-center')}>
       <div className="logo-wrap">
         <LocaleLink className="logo" to="/">
           <Icon type="cloud-logo" className="align-top" />

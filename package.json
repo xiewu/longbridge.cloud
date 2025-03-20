@@ -35,6 +35,7 @@
     "react-router-dom": "^6.3.0",
     "react-toastify": "^9.0.7",
     "swiper": "^8.1.4",
+    "tailwind-merge": "^2.6.0",
     "ufo": "^1.5.4",
     "video.js": "^7.18.1"
   },

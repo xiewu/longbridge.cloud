@@ -11,7 +11,7 @@ export const WhaleJourneyBanner = () => {
       imageUrl="https://assets.lbctrl.com/uploads/8fa4eaa5-9e38-438a-b656-827a852ed4b5/bg.png"
       className={classNames('h-[530px]')}
     >
-      <div className={classNames('main-container', 'h-full', styles['journey-banner-container'])}>
+      <div className={classNames('main-container !px-11 md:!px-4', 'h-full', styles['journey-banner-container'])}>
         <div className={classNames('py-10 h-full')}>
           <div className="main-content-width h-full">
             <div className="flex justify-center md:justify-start h-full items-center">

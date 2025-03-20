@@ -14,7 +14,7 @@ export const InvitedFooter = ({ className, referCode, name }: InvitedFooterProps
 
   return (
     <Block className={className}>
-      <div className="flex justify-between">
+      <div className="flex justify-between  flex-col gap-4 md:flex-row">
         <div>
           <h2 className="text-2xl  font-semibold">{t('whale-ambassador.invited-footer.title')}</h2>
           <p className=" text-base leading-[1.75em] text-text-color-1-supplement font-normal">

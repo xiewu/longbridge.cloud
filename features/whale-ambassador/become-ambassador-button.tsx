@@ -7,9 +7,10 @@ import { useTranslation } from 'next-i18next'
 interface BecomeAmbassadorButtonProps extends ButtonProps {
   /** 来自页面，用于 */
   form?: string
+  children?: React.ReactNode
 }
 
-export const BecomeAmbassadorButton = ({ className, form, ...props }: BecomeAmbassadorButtonProps) => {
+export const BecomeAmbassadorButton = ({ className, form, children, ...props }: BecomeAmbassadorButtonProps) => {
   const { t } = useTranslation('common')
   const [isOpen, setIsOpen] = useState(false)
 
@@ -24,7 +25,7 @@ export const BecomeAmbassadorButton = ({ className, form, ...props }: BecomeAmba
   return (
     <div>
       <Button className={className} {...props} onClick={handleClick}>
-        {t('whale-ambassador.become-ambassador')}
+        {children || t('whale-ambassador.become-ambassador')}
       </Button>
       <RegisterFormModal open={isOpen} onClose={() => setIsOpen(false)} />
     </div>

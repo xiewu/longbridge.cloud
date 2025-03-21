@@ -15,7 +15,7 @@ export const SendInviteLink = () => {
 
   const handleSendInviteLink = async () => {
     const values = await form.validateFields()
-    await WhaleReferrerService.sendVerificationCode({ email: values.email })
+    await WhaleReferrerService.resendLink({ email: values.email })
     toast.success(t('whale-ambassador.invite-link-sent'))
     setOpen(false)
   }

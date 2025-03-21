@@ -148,7 +148,7 @@ export const RecommendForm = ({ onSuccess, referCode }: RecommendFormProps) => {
           <Form.Item
             name="others"
             noStyle
-            rules={[{ required: true, whitespace: true, message: t('whale-ambassador.input-placeholder') }]}
+            rules={[{ required: true, message: t('whale-ambassador.input-placeholder') }]}
           >
             <Input placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.others') })} />
           </Form.Item>

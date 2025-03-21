@@ -147,7 +147,7 @@ export const InvitedForm = ({
           name="appointmentDate"
           label={t('whale-ambassador.invited-form.appointment-date')}
           required
-          rules={[{ required: true, whitespace: true }]}
+          rules={[{ required: true }]}
         >
           <DatePicker
             className="w-full"
@@ -159,7 +159,7 @@ export const InvitedForm = ({
           name="appointmentTime"
           label={t('whale-ambassador.invited-form.appointment-time')}
           required
-          rules={[{ required: true, whitespace: true }]}
+          rules={[{ required: true }]}
         >
           <TimePicker
             className="w-full"
@@ -172,7 +172,7 @@ export const InvitedForm = ({
           name="services"
           label={t('whale-ambassador.interested-services')}
           required
-          rules={[{ required: true, whitespace: true }]}
+          rules={[{ required: true }]}
         >
           <AntdCheckbox.Group className="flex  flex-wrap gap-2">
             {serviceOptions.map(option => (

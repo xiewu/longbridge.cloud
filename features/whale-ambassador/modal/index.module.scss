@@ -5,9 +5,14 @@
 }
 
 :local(.wrapper) {
-  @apply w-full flex h-screen items-center justify-center;
+  // 兼容老版本
+  height: 100vh;
+  height: 100dvh;
+  @apply w-full flex items-center justify-center;
 }
 
 :local(.content) {
-  @apply flex flex-col bg-front-bg-color-1 w-screen h-screen md:w-[400px] md:h-auto space-y-4 pointer-events-auto pb-6;
+  height: 100vh;
+  height: 100dvh;
+  @apply flex flex-col bg-front-bg-color-1 w-screen md:w-[400px] md:h-auto space-y-4 pointer-events-auto pb-6;
 }

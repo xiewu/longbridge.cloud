@@ -89,7 +89,9 @@ export const FAQ = () => {
             header={<h3 className="max-w-[85%] text-text-color-1 font-medium text-lg">{question.title}</h3>}
             key={index}
           >
-            <p className="text-base leading-7 md:left-6 text-text-color-1-supplement font-normal">{question.content}</p>
+            <p className="text-base text-left leading-7 md:left-6 text-text-color-1-supplement font-normal">
+              {question.content}
+            </p>
           </Panel>
         ))}
       </Collapse>

@@ -12,23 +12,32 @@ const BlockList = () => {
   const width = useWidth()
   const metaList = useMemo(() => {
     return width > 768 ? desktopMetaList : mobileMetaList
-  }, [i18n.language, width])
+  }, [width])
 
   return (
     <>
-      {metaList.map(item => (
-        <Block
-          className={classNames(styles.block, '!py-0 md:!py-[100px] !px-0 md:!px-4', `block-${item.id}`)}
-          key={`${width}-${item.id}-${metaList.length}`}
-        >
-          <img
-            key={item.source[i18n.language as keyof typeof item.source]}
-            className="w-full md:max-w-full "
-            src={item.source[i18n.language as keyof typeof item.source]}
-            alt={`${item.id}`}
-          />
-        </Block>
-      ))}
+      {metaList.map(item => {
+        const currentLang = i18n.language as keyof typeof item.source
+        const imageInfo = item.source[currentLang]
+
+        return (
+          <Block
+            className={classNames(styles.block, '!py-0 md:!py-[100px] !px-0 md:!px-4', `block-${item.id}`)}
+            key={`${width}-${item.id}-${metaList.length}`}
+          >
+            <img
+              loading="lazy"
+              key={imageInfo.url}
+              className="w-full"
+              style={{
+                aspectRatio: `${imageInfo.width} / ${imageInfo.height}`,
+              }}
+              src={imageInfo.url}
+              alt={`${item.id}`}
+            />
+          </Block>
+        )
+      })}
     </>
   )
 }

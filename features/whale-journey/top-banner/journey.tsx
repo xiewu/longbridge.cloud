@@ -11,11 +11,11 @@ export const WhaleJourneyBanner = () => {
       <div className={classNames('main-container !px-11 md:!px-4', 'h-full', styles['journey-banner-container'])}>
         <div className={classNames('py-10 h-full')}>
           <div className="main-content-width h-full">
-            <div className="flex justify-center items-start    md:justify-start h-full md:items-center">
+            <div className="flex items-start    md:justify-start h-full md:items-center">
               <div className="text-[#FFC977] mt-10 md:mt-0 flex flex-col md:justify-center   h-full">
                 <div
                   className={classNames(
-                    ' text-5xl  font-bold italic md:font-[350] leading-none md:text-6xl  en:md:text-[80px]'
+                    ' text-5xl en:ml-2 en:md:ml-0  font-bold italic md:font-[350]  leading-tight en:leading-none md:text-6xl  en:md:text-[80px]'
                   )}
                 >
                   {t('whale-journey.top-banner.journey.title1')}

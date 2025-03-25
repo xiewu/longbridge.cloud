@@ -2,8 +2,8 @@ import React, { useState, useMemo, useEffect } from 'react'
 import { Button } from 'antd'
 import classNames from 'classnames'
 import { QRCodeSVG } from 'qrcode.react'
-import { getInviteLink } from './utils'
-import { Modal, ModalProps } from '../modal'
+import { getInviteLink } from '../utils'
+import { Modal, ModalProps } from '../../modal'
 import { domToBlob } from 'modern-screenshot'
 import { toast } from 'react-toastify'
 import { WhaleReferrerService } from '@/services/whale-ambassador/index'
@@ -11,7 +11,7 @@ import { useSearchParams } from 'react-router-dom'
 import { isServer } from '@/utils/common'
 import { useTranslation } from 'next-i18next'
 import { useLocaleNavigate } from '@/hooks/use-locale-navigate'
-
+import styles from './index.module.scss'
 interface SharePosterProps {
   className?: string
   name: string
@@ -29,9 +29,9 @@ export const SharePoster = ({ className, name, code }: SharePosterProps) => {
   const isMobile = innerWidth < 768
   const posterHeight = useMemo(() => {
     if (i18n.language === 'en') {
-      return 585
+      return 565
     }
-    return 570
+    return 550
   }, [i18n.language])
 
   const scale = useMemo(() => {
@@ -73,8 +73,8 @@ export const SharePoster = ({ className, name, code }: SharePosterProps) => {
         }}
       >
         <img
-          className=" w-[320px] h-[392px]"
-          src="https://assets.whalesit.xyz/uploads/4df171c2-8c0d-4995-9566-a2f02ae78030/poster.svg"
+          className=" w-[320px] h-[371px]"
+          src="https://assets.lbctrl.com/uploads/8377136c-b9a7-4ebe-9c6c-2fbb95ab4fca/poster.png"
           alt="poster"
         />
         {/* 内容区域 */}
@@ -162,7 +162,7 @@ export const SharePosterModal = ({ className, onClose, name, code, open }: Share
       open={open}
       onClose={onClose}
       enableHeader={!isMobile}
-      className={classNames('bg-[rgba(255,255,255,0.12)] [backdrop-filter:blur(40px)]', { '!pb-0': isMobile })}
+      className={classNames('bg-[rgba(255,255,255,0.12)]  !pb-0', styles['poster-modal-content'])}
     >
       <div className={classNames(className, { 'h-screen flex flex-col  justify-end': isMobile })}>
         <SharePoster name={name} code={code} />
@@ -178,8 +178,8 @@ export const SharePosterModal = ({ className, onClose, name, code, open }: Share
             </div>
           </div>
         ) : (
-          <div className="px-6">
-            <Button type="primary" block className="mt-4 py-2.5 h-auto" onClick={() => savePoster(t)}>
+          <div className="px-6 py-5  bg-white">
+            <Button type="primary" block className="py-2.5 h-auto" onClick={() => savePoster(t)}>
               {t('whale-ambassador.save-invite-poster')}
             </Button>
           </div>

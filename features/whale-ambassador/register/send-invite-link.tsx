@@ -44,7 +44,7 @@ export const SendInviteLink = () => {
       </Modal>
       <Button
         type="link"
-        className="py-0 pl-1 pr 0 border-none text-sm md:text-base h-auto"
+        className="py-0 pl-1 pr 0 border-none text-sm md:text-base h-auto text-white"
         onClick={() => setOpen(true)}
       >
         <span className="underline">{t('whale-ambassador.get-invite-link')}</span>

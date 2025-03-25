@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTranslation } from 'next-i18next'
+import { useTranslation, Trans } from 'next-i18next'
 
 export const RecommendRewardList = () => {
   const { t } = useTranslation('common')
@@ -7,46 +7,50 @@ export const RecommendRewardList = () => {
     {
       label: t('whale-ambassador.one-recommend'),
       value: (
-        <span>
-          {'300x1 ='}
-          <span className="font-semibold">{`${(300).toLocaleString()} HKD`}</span>
-        </span>
+        <Trans
+          i18nKey="whale-ambassador.reward-value-1"
+          components={{ amount: <span className="text-[#1C1F23] text-xl" /> }}
+        />
       ),
     },
     {
       label: t('whale-ambassador.two-recommend'),
       value: (
-        <span>
-          {'300x2 ='}
-          <span className="font-semibold">{`${(600).toLocaleString()} HKD`}</span>
-        </span>
+        <Trans
+          i18nKey="whale-ambassador.reward-value-2"
+          components={{ amount: <span className="text-[#1C1F23] text-xl" /> }}
+        />
       ),
     },
     {
       label: t('whale-ambassador.three-recommend'),
       value: (
-        <span>
-          {'300x3x2 ='}
-          <span className="font-semibold">{`${(1800).toLocaleString()} HKD`}</span>
-        </span>
+        <Trans
+          i18nKey="whale-ambassador.reward-value-3"
+          components={{ amount: <span className="text-[#1C1F23] text-xl" /> }}
+        />
       ),
     },
     {
       label: t('whale-ambassador.more-than-three-recommend'),
-      value: <span className="text-[rgba(28,31,35,0.45)]">{t('whale-ambassador.unlimited')}</span>,
+      value: (
+        <span className="text-brand_color text-base">
+          <Trans i18nKey="whale-ambassador.unlimited" />
+        </span>
+      ),
     },
   ]
   return (
-    <div className="text-text-color-1-supplement md:w-1/2">
-      <div className="flex justify-between text-sm  pb-2  md:pb-1.5 border-b border-border_color">
+    <div className="text-text-color-1-supplement">
+      <div className="flex justify-between text-sm  pb-2  md:pb-2 border-b border-[rgba(0,0,0,0.50)]">
         <div>{t('whale-ambassador.valid-recommend-number')}</div>
         <div>{t('whale-ambassador.reward-value')}</div>
       </div>
-      <div className=" space-y-2 mt-3">
+      <div className=" flex flex-col gap-3 mt-3">
         {list.map(item => (
           <div key={item.label} className="flex justify-between">
-            <div>{item.label}</div>
-            <div>{item.value}</div>
+            <div className="text-xl font-semibold">{item.label}</div>
+            <div className="text-sm font-semibold">{item.value}</div>
           </div>
         ))}
       </div>

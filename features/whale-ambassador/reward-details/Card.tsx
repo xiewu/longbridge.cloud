@@ -11,11 +11,16 @@ export const Card = (props: CardProps) => {
   return (
     <div
       {...restProps}
-      className={classNames('rounded-lg px-4 pt-4 md:px-8 md:pt-8  border border-border_color relative', className)}
+      className={classNames(
+        'flex flex-col rounded-lg px-4 pt-4 md:px-8 md:pt-8 bg-[#F6EFFF]  border border-border_color relative',
+        className
+      )}
     >
-      <h3 className=" text-xl md:text-3xl font-semibold text-grey-9 mb-2">{title}</h3>
+      <h3 className=" text-xl md:text-2xl font-semibold text-grey-9 mb-6">{title}</h3>
       {icon && <div className="absolute top-4 right-4 md:top-8 md:right-8">{icon}</div>}
-      <div className="space-y-4">{children}</div>
+      <div className="border flex-1 bg-front-bg-color1 rounded-lg px-4 md:px-5 py-7  [box-shadow:_0px_0px_10px_0px_rgba(0,0,0,0.05)]">
+        {children}
+      </div>
     </div>
   )
 }

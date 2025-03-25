@@ -72,7 +72,7 @@ export const RecommendForm = ({ onSuccess, referCode }: RecommendFormProps) => {
           required
           rules={[{ required: true, whitespace: true }]}
         >
-          <Input placeholder={t('whale-ambassador.input-placeholder', t('whale-ambassador.contact-name'))} />
+          <Input placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.contact-name') })} />
         </Form.Item>
         <Form.Item
           name="position"
@@ -134,7 +134,7 @@ export const RecommendForm = ({ onSuccess, referCode }: RecommendFormProps) => {
           name="services"
           label={t('whale-ambassador.interested-services')}
           required
-          rules={[{ required: true, whitespace: true }]}
+          rules={[{ required: true }]}
         >
           <AntdCheckbox.Group className="flex  md:flex-col flex-wrap gap-2">
             {serviceOptions.map(option => (

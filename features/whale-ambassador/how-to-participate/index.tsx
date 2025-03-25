@@ -78,7 +78,7 @@ export const HowToParticipate = () => {
                   />
                 )}
 
-                <Step index={index} key={step.titleKey} {...step} />
+                <Step key={step.titleKey} {...step} />
               </Fragment>
             ))}
           </div>

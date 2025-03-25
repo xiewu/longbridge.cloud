@@ -35,7 +35,7 @@ export const InvitedRewardDetails = () => {
         <BecomeAmbassadorButton
           form="被推荐人-登记成功反馈页"
           type="primary"
-          className="block w-full py-2.5 mt-5 md:mt-12 md:inline-block md:w-max"
+          className="block w-full py-2.5 h-auto mt-5 md:mt-12 md:inline-block md:w-max"
         />
       </div>
     </Block>

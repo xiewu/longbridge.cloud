@@ -12,7 +12,7 @@ export const RewardDetails = () => {
       <h2 className="mb-5 md:mb-10 text-text-color-1  text-[28px]  md:text-4xl font-semibold">
         {t('whale-ambassador.reward-details')}
       </h2>
-      <div className="flex flex-col md:flex-row gap-3 md:gap-5">
+      <div className="flex flex-col lg:flex-row  gap-3 md:gap-5">
         <SignCard />
         <RecommendCard />
       </div>
@@ -27,7 +27,7 @@ export const InvitedRewardDetails = () => {
       <h2 className="mb-5 md:mb-10 text-text-color-1  text-[28px]  md:text-4xl font-semibold">
         {t('whale-ambassador.invited-reward-details')}
       </h2>
-      <div className="flex flex-col md:flex-row gap-3 md:gap-5">
+      <div className="flex flex-col  lg:flex-row gap-3 md:gap-5">
         <SignCard />
         <RecommendCard />
       </div>
@@ -35,7 +35,7 @@ export const InvitedRewardDetails = () => {
         <BecomeAmbassadorButton
           form="被推荐人-登记成功反馈页"
           type="primary"
-          className="block w-full mt-5 md:mt-12 md:inline-block md:w-max"
+          className="block w-full py-2.5 mt-5 md:mt-12 md:inline-block md:w-max"
         />
       </div>
     </Block>

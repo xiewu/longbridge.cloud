@@ -121,7 +121,14 @@ function useNavs() {
       {
         value: '/whale-ambassador',
         suffix: '',
-        label: i18n.t('header_nav_010'),
+        label: (
+          <span className="">
+            <span>{i18n.t('header_nav_010')}</span>
+            <span className="text-xs ml-2 leading-normal text-[#CA8123] border border-[#FCF2D3] bg-[#FEFAEE] px-1">
+              New
+            </span>
+          </span>
+        ),
         children: [],
       },
     ]

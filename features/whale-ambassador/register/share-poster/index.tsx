@@ -78,7 +78,7 @@ export const SharePoster = ({ className, name, code }: SharePosterProps) => {
           alt="poster"
         />
         {/* 内容区域 */}
-        <div className="relative p-4 text-front-bg-color1 h-[176px]">
+        <div className="relative p-4 text-front-bg-color1 h-[176px] en:h-[196px]">
           {/* 用户名称 */}
           <p className="text-sm  font-medium text-brand_color mb-1 min-h-5">{name}</p>
           {/* 标题 */}

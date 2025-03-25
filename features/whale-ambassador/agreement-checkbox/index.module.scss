@@ -3,8 +3,8 @@
     @apply text-text-color-2 w-full;
   }
   .ant-checkbox {
-    flex: 0 1 36px;
-    @apply rounded-full overflow-hidden scale-75;
+    flex: 0 0 auto;
+    @apply rounded-full overflow-hidden scale-75 mr-1;
     .ant-checkbox-input {
       @apply rounded-full w-4;
     }

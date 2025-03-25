@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { Form, Input, Button, Checkbox as AntdCheckbox, DatePicker, TimePicker } from 'antd'
 import { PhoneNumberInput, validatePhoneNumberRule } from '../phone-number-input'
 import { Referee, WhaleReferrerService } from '@/services/whale-ambassador'
@@ -37,13 +37,17 @@ export const InvitedForm = ({
 }: InvitedFormProps) => {
   const [form] = Form.useForm<InvitedFormValues>()
   const [loading, setLoading] = useState(false)
-  const [agree, setAgree] = useState(false)
+  const [agreePrivacy, setAgreePrivacy] = useState(false)
   const service = Form.useWatch(['services'], form)
   const [shareEmail, setShareEmail] = useState(false)
   const otherService = service?.includes(Service.OTHER.toString())
   const { t, i18n } = useTranslation('common')
   const serviceOptions = useServiceOptions()
   const navigate = useNavigate()
+
+  const allowSubmit = useMemo(() => {
+    return agreePrivacy && shareEmail
+  }, [agreePrivacy, shareEmail])
 
   const handleFinish = async () => {
     setLoading(true)
@@ -68,7 +72,7 @@ export const InvitedForm = ({
       onSuccess?.(refereeData)
       form.resetFields()
       setShareEmail(false)
-      setAgree(false)
+      setAgreePrivacy(false)
       navigate(withQuery(`/${i18n.language}/whale-ambassador/invited-success`, { code: referCode, name: referrerName }))
     } finally {
       setLoading(false)
@@ -209,8 +213,8 @@ export const InvitedForm = ({
         <div className="flex flex-col gap-2 md:gap-5 mb-4">
           <AgreementCheckbox
             useDefaultStyle={useDefaultStyle}
-            checked={agree}
-            onChange={e => setAgree(e.target.checked)}
+            checked={agreePrivacy}
+            onChange={e => setAgreePrivacy(e.target.checked)}
           >
             <Trans
               i18nKey="whale-ambassador.invited-agreement"
@@ -229,12 +233,12 @@ export const InvitedForm = ({
           </AgreementCheckbox>
         </div>
         <Button
-          disabled={!agree}
+          disabled={!allowSubmit}
           loading={loading}
           block
           type="primary"
           className={classNames('py-2 h-auto', {
-            ['  !bg-[#C5A4FA] !text-front-bg-color1']: !agree && useDefaultStyle,
+            ['!bg-[#C5A4FA] !text-front-bg-color1']: !allowSubmit && useDefaultStyle,
           })}
           htmlType="submit"
           onClick={handleFinish}

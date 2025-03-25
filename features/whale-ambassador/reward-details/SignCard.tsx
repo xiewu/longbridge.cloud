@@ -17,12 +17,12 @@ export const SignCard = () => {
         />
       }
     >
-      <p className="md:mt-7">
+      <div className="md:mt-7">
         <div className=" font-bold text-brand_color text-[#ED9912]">
           <span className="text-5xl md:text-6xl">{`${(i18n.language === 'en' ? 1800 : 10000).toLocaleString()}`}</span>
           <span className="text-2xl md:text-3xl ml-2">{i18n.language === 'en' ? 'SGD' : 'HKD'}</span>
         </div>
-      </p>
+      </div>
       <p className="text-sm md:text-base  text-text-color-1-supplement">
         {t('whale-ambassador.sign-reward-desc', {
           amount: i18n.language === 'en' ? '1,800 SGD' : '10,000 HKD',

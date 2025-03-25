@@ -7,6 +7,8 @@ import { SEOMeta } from '@/utils/seo'
 import { Layout } from '@/features/common/page-layout'
 import { SharePosterPanel } from '@/features/whale-ambassador/register/share-poster'
 import { GetStaticPropsContext } from 'next'
+import { TopBanner } from '@/features/whale-ambassador/top-banner'
+import { RewardDetails } from '@/features/whale-ambassador/reward-details'
 
 export const getStaticPaths = () => ({
   fallback: false,
@@ -25,7 +27,11 @@ const WhaleAmbassadorPoster = () => {
   return (
     <Layout>
       <SEOMeta title={seoI18n.t('whale-ambassador.title')} description={seoI18n.t('whale-ambassador.description')} />
-      <SharePosterPanel />
+      <div className="space-y-16 md:space-y-20 pb-16 md:pb-20">
+        <TopBanner />
+        <RewardDetails />
+        <SharePosterPanel />
+      </div>
     </Layout>
   )
 }

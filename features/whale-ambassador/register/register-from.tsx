@@ -17,7 +17,7 @@ export const RegisterFrom = (props: RegisterFromProps) => {
   const { onSuccess } = props
   const [form] = Form.useForm<Referrer>()
   const [loading, setLoading] = useState(false)
-  const [agree, setAgree] = useState(false)
+  const [agreePrivacy, setAgreePrivacy] = useState(false)
   const { t } = useTranslation('common')
 
   const handleFinish = async () => {
@@ -28,7 +28,7 @@ export const RegisterFrom = (props: RegisterFromProps) => {
         data: { code },
       } = await WhaleReferrerService.joinReferrer(values)
       onSuccess?.({ ...values, code })
-      setAgree(false)
+      setAgreePrivacy(false)
     } finally {
       setLoading(false)
     }
@@ -115,12 +115,12 @@ export const RegisterFrom = (props: RegisterFromProps) => {
       </Form>
       <div className="px-6">
         <div className="flex mb-4">
-          <AgreementCheckbox checked={agree} onChange={e => setAgree(e.target.checked)}>
+          <AgreementCheckbox checked={agreePrivacy} onChange={e => setAgreePrivacy(e.target.checked)}>
             <Trans i18nKey="whale-ambassador.sign-in-agreement" components={{ link: <PrivacyAgreement /> }} />
           </AgreementCheckbox>
         </div>
         <Button
-          disabled={!agree}
+          disabled={!agreePrivacy}
           loading={loading}
           block
           type="primary"

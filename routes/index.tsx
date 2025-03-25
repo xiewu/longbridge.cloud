@@ -31,11 +31,11 @@ import SmallBrokeragesPage from '@/pages/[locale]/solutions/small-brokerages'
 import UsStock from '@/pages/[locale]/solutions/us-stock'
 import SolutionWealthManagement from '@/pages/[locale]/solutions/wealth-management'
 import WealthManagement from '@/pages/[locale]/wealth-management'
+import WhaleJourney from '@/pages/[locale]/whale-journey'
 import WhaleAmbassador from '@/pages/[locale]/whale-ambassador'
 import WhaleAmbassadorInvited from '@/pages/[locale]/whale-ambassador/invited'
 import WhaleAmbassadorInvitedSuccess from '@/pages/[locale]/whale-ambassador/invited-success'
 import WhaleAmbassadorPoster from '@/pages/[locale]/whale-ambassador/poster'
-import WhaleJourney from '@/pages/[locale]/whale-journey'
 
 export const RouteList = ({ pageProps }: { pageProps: any }) => {
   return (
@@ -77,6 +77,7 @@ export const RouteList = ({ pageProps }: { pageProps: any }) => {
               <Route path="solutions/wealth-management" element={<SolutionWealthManagement {...pageProps} />} />
               <Route path="wealth-management" element={<WealthManagement {...pageProps} />} />
               <Route path="jobs" element={<Jobs {...pageProps} />} />
+              <Route path="whale-journey" element={<WhaleJourney {...pageProps} />} />
               <Route path="whale-ambassador" element={<WhaleAmbassador {...pageProps} />} />
               <Route path="whale-ambassador/poster" element={<WhaleAmbassadorPoster {...pageProps} />} />
               <Route path="whale-ambassador/invited" element={<WhaleAmbassadorInvited {...pageProps} />} />
@@ -84,7 +85,6 @@ export const RouteList = ({ pageProps }: { pageProps: any }) => {
                 path="whale-ambassador/invited-success"
                 element={<WhaleAmbassadorInvitedSuccess {...pageProps} />}
               />
-              <Route path="whale-journey" element={<WhaleJourney {...pageProps} />} />
             </Route>
           </Fragment>
         )

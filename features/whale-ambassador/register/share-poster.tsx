@@ -10,6 +10,7 @@ import { WhaleReferrerService } from '@/services/whale-ambassador/index'
 import { useSearchParams } from 'react-router-dom'
 import { isServer } from '@/utils/common'
 import { useTranslation } from 'next-i18next'
+import { useLocaleNavigate } from '@/hooks/use-locale-navigate'
 
 interface SharePosterProps {
   className?: string
@@ -20,7 +21,6 @@ interface SharePosterProps {
 }
 
 const posterWidth = 320
-const posterHeight = 570
 
 export const SharePoster = ({ className, name, code }: SharePosterProps) => {
   const { t, i18n } = useTranslation('common')
@@ -80,7 +80,7 @@ export const SharePoster = ({ className, name, code }: SharePosterProps) => {
         {/* 内容区域 */}
         <div className="relative p-4 text-front-bg-color1 h-[176px]">
           {/* 用户名称 */}
-          <p className="text-sm  font-medium text-brand_color mb-1">{name}</p>
+          <p className="text-sm  font-medium text-brand_color mb-1 min-h-5">{name}</p>
           {/* 标题 */}
           <h2 className="text-xl  font-medium">{t('whale-ambassador.invite-experience-service')}</h2>
           <p className="text-xs text-[rgba(28,31,35,0.60)] font-medium mb-1">
@@ -147,7 +147,7 @@ export const savePoster = async (t: (key: string) => string) => {
 
 export const SharePosterModal = ({ className, onClose, name, code, open }: SharePosterModalProps) => {
   const { t } = useTranslation('common')
-  const [isMobile, setMobile] = useState(window.innerWidth < 768)
+  const [isMobile, setMobile] = useState(isServer() ? false : window.innerWidth < 768)
 
   useEffect(() => {
     const handleResize = () => {
@@ -195,6 +195,12 @@ export const SharePosterPanel = () => {
   const code = searchParams.get('code')
   const [name, setName] = useState('')
 
+  const navigateToPoster = useLocaleNavigate()
+
+  const handleClose = () => {
+    navigateToPoster('/whale-ambassador')
+  }
+
   useEffect(() => {
     if (code) {
       WhaleReferrerService.getNameByCode({ code: code }).then(res => {
@@ -203,16 +209,5 @@ export const SharePosterPanel = () => {
     }
   }, [code])
 
-  return (
-    <div className="flex items-center justify-center my-4 px-4">
-      <div className="bg-grey-1 [backdrop-filter:blur(40px)] p-6">
-        <div className="flex flex-col flex-1 items-center justify-center mx-auto">
-          <SharePoster name={name} code={code!} />
-          <Button type="primary" block className="mt-4 py-2.5 h-auto" onClick={() => savePoster(t)}>
-            {t('whale-ambassador.save-invite-poster')}
-          </Button>
-        </div>
-      </div>
-    </div>
-  )
+  return <SharePosterModal open={true} onClose={handleClose} name={name} code={code!} />
 }

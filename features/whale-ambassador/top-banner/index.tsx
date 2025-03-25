@@ -1,5 +1,5 @@
 import React from 'react'
-import { Block, TopBlock } from '@/components/block'
+import { TopBlock } from '@/components/block'
 import { BecomeAmbassadorButton } from '../become-ambassador-button'
 import { SendInviteLink } from '../register/send-invite-link'
 import { useTranslation } from 'next-i18next'
@@ -28,8 +28,10 @@ export const TopBanner = () => {
                   />
                 </div>
                 <div className="flex mt-4 items-baseline text-sm md:text-base justify-center md:justify-start">
-                  <span className="text-[rgba(255,255,255,0.60)]">{t('whale-ambassador.already-certified')}</span>
-                  <SendInviteLink />
+                  <div>
+                    <span className="text-[rgba(255,255,255,0.60)]">{t('whale-ambassador.already-certified')}</span>
+                    <SendInviteLink />
+                  </div>
                 </div>
               </div>
             </div>

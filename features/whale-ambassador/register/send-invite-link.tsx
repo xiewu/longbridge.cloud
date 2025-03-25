@@ -21,7 +21,7 @@ export const SendInviteLink = () => {
   }
 
   return (
-    <div>
+    <>
       <Modal open={open} onClose={() => setOpen(false)} title={t('whale-ambassador.get-invite-link')}>
         <div className="flex flex-col flex-1 items-start">
           <div className="text-text_color_1_supplement px-6 text-xs ">
@@ -42,13 +42,9 @@ export const SendInviteLink = () => {
           {t('whale-ambassador.submit')}
         </Button>
       </Modal>
-      <Button
-        type="link"
-        className="py-0 pl-1 pr 0 border-none text-sm md:text-base h-auto text-white"
-        onClick={() => setOpen(true)}
-      >
+      <a className="ml-1  border-none text-sm md:text-base h-auto text-white" onClick={() => setOpen(true)}>
         <span className="underline">{t('whale-ambassador.get-invite-link')}</span>
-      </Button>
-    </div>
+      </a>
+    </>
   )
 }

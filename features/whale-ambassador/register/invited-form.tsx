@@ -105,7 +105,9 @@ export const InvitedForm = ({
           validateTrigger={['onComplete', 'onChange']}
         >
           <PhoneNumberInput
-            placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.invited-form.phone') })}
+            placeholder={t('whale-ambassador.input-placeholder', {
+              label: t('whale-ambassador.invited-form.phone'),
+            })}
           />
         </Form.Item>
         <Form.Item

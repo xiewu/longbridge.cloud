@@ -74,7 +74,7 @@ export const SharePoster = ({ className, name, code }: SharePosterProps) => {
       >
         <img
           className=" w-[320px] h-[371px]"
-          src="https://assets.lbctrl.com/uploads/8377136c-b9a7-4ebe-9c6c-2fbb95ab4fca/poster.png"
+          src="https://assets.lbctrl.com/uploads/e9a6eec7-4ff8-4c2e-8bac-ad21ae1c418d/e3bcdad70992e734a8d1127d3965b805.png"
           alt="poster"
         />
         {/* 内容区域 */}

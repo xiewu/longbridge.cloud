@@ -98,14 +98,14 @@ export const RegisterSuccess = (props: RegisterSuccessProps) => {
         <span className="text-text-color-2">{t('whale-ambassador.share-to')}</span>
         <button onClick={handleShareWhatsApp}>
           <img
-            src="https://assets.lbctrl.com/uploads/914e5770-e601-4478-a601-48b21d4b087a/whatapp.svg"
+            src="https://assets.lbctrl.com/uploads/6c707c95-ff89-460e-86c7-10a18c2ed75b/whatsapp.svg"
             alt={'WhatsApp'}
             className="w-7 h-7"
           />
         </button>
         <button onClick={handleShareLinkedIn}>
           <img
-            src="https://assets.lbctrl.com/uploads/231bb2b1-9b5d-4687-8a80-6d6521d5c7d8/linkedin.svg"
+            src="https://assets.lbctrl.com/uploads/ea49e61e-e2a8-4fa7-9307-a359afd78999/linkedin.svg"
             alt={'LinkedIn'}
             className="w-7 h-7"
           />

@@ -14,7 +14,7 @@ export const RegisterFormModal = (props: RegisterFormModalProps) => {
   const [referrer, setReferrer] = useState<Referrer | null>()
   const { t } = useTranslation('common')
   return (
-    <Modal {...props} title={t('whale-ambassador.become-ambassador')}>
+    <Modal {...props} title={referrer ? '' : t('whale-ambassador.become-ambassador')}>
       {referrer ? (
         <RegisterSuccess
           referrer={referrer}
@@ -29,7 +29,7 @@ export const RegisterFormModal = (props: RegisterFormModalProps) => {
         title={t('whale-ambassador.fill-recommend-info')}
         onClose={() => setAction(undefined)}
       >
-        <RecommendForm referCode={referrer?.code} />
+        <RecommendForm referCode={referrer?.code} onSuccess={() => setAction(undefined)} />
       </Modal>
       <SharePosterModal
         open={action === 'share'}

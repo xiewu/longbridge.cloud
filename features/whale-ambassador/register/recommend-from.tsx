@@ -74,7 +74,7 @@ export const RecommendForm = ({ onSuccess, referCode }: RecommendFormProps) => {
           required
           rules={[{ required: true, whitespace: true }]}
         >
-          <Input placeholder={t('whale-ambassador.input-placeholder', t('whale-ambassador.contact-name'))} />
+          <Input placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.contact-name') })} />
         </Form.Item>
         <Form.Item
           name="position"
@@ -149,8 +149,12 @@ export const RecommendForm = ({ onSuccess, referCode }: RecommendFormProps) => {
         {otherService && (
           <Form.Item
             name="others"
-            noStyle
-            rules={[{ required: true, message: t('whale-ambassador.input-placeholder') }]}
+            rules={[
+              {
+                required: true,
+                message: t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.others') }),
+              },
+            ]}
           >
             <Input placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.others') })} />
           </Form.Item>

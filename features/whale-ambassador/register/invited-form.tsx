@@ -26,7 +26,7 @@ interface InvitedFormProps {
 interface InvitedFormValues extends Omit<Referee, 'datetime' | 'services'> {
   appointmentDate?: Dayjs
   appointmentTime?: Dayjs
-  services: string[]
+  services: number[]
 }
 
 export const InvitedForm = ({
@@ -40,7 +40,7 @@ export const InvitedForm = ({
   const [agreePrivacy, setAgreePrivacy] = useState(false)
   const service = Form.useWatch(['services'], form)
   const [shareEmail, setShareEmail] = useState(false)
-  const otherService = service?.includes(Service.OTHER.toString())
+  const otherService = service?.includes(Service.OTHER)
   const { t, i18n } = useTranslation('common')
   const serviceOptions = useServiceOptions()
   const navigate = useNavigate()
@@ -194,7 +194,7 @@ export const InvitedForm = ({
             noStyle
             rules={[{ required: true, whitespace: true, message: t('whale-ambassador.input-placeholder') }]}
           >
-            <Input placeholder={t('whale-ambassador.input-placeholder')} />
+            <Input placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.others') })} />
           </Form.Item>
         )}
         <Form.Item

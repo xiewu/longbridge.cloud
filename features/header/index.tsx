@@ -122,9 +122,9 @@ function useNavs() {
         value: '/whale-ambassador',
         suffix: '',
         label: (
-          <span className="">
+          <span>
             <span>{i18n.t('header_nav_010')}</span>
-            <span className="text-xs ml-2 leading-normal text-[#CA8123] border border-[#FCF2D3] bg-[#FEFAEE] px-1">
+            <span className=" py-[1px] text-[12px] leading-[18px] ml-2  text-[#CA8123] border border-[#FCF2D3] bg-[#FEFAEE] px-1">
               New
             </span>
           </span>
@@ -161,7 +161,7 @@ const Navs = () => {
           return (
             <div
               key={nav.value}
-              className={classNames('nav-item text-[16px] leading-4', {
+              className={classNames('nav-item text-[16px] leading-5', {
                 'nav-item__selected': nav.value === selectedNav?.value,
               })}
             >

@@ -13,7 +13,7 @@ export const TopBanner = () => {
         <div className={classNames('h-full max-w-[1232px] mx-auto')}>
           <div className={classNames('h-full flex  justify-start lg:items-center max-w-[1200px] mx-4')}>
             <div className="main-content-width w-full ">
-              <div className={classNames('space-y-10 w-full px-4 lg:px-0 flex flex-col justify-between h-full')}>
+              <div className={classNames('w-full px-4 lg:px-0 flex flex-col justify-between h-full')}>
                 <div className={'space-y-3 text-center lg:text-left'}>
                   <h1 className=" text-[#AFB3B6] font-semibold text-base lg:text-3xl">
                     {t('whale-ambassador.program-title')}
@@ -23,7 +23,7 @@ export const TopBanner = () => {
                   </p>
                   <BecomeAmbassadorButton
                     form="推荐官计划主页"
-                    className="px-4 py-2.5 h-auto font-medium  text-sm  lg:text-xl mt-6 lg:mt-10"
+                    className="px-4 py-2.5 h-auto font-medium  text-sm  lg:text-base mt-6 lg:mt-10"
                     type="primary"
                   />
                 </div>

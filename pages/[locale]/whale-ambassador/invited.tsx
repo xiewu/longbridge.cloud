@@ -8,7 +8,6 @@ import { Layout } from '@/features/common/page-layout'
 import { useSearchParams } from 'react-router-dom'
 import { WhaleReferrerService } from '@/services/whale-ambassador'
 import { InvitedTopBanner } from '@/features/whale-ambassador/top-banner/invited'
-import { InvitedFormWithTitle } from '@/features/whale-ambassador/register/invited-form'
 import HomeTeamsInfo from '@/features/home/home-teams-info'
 import HomeSolutionSwiper from '@/features/home/home-solution-swiper'
 import { BrokeragesQuotes } from '@/features/whale-ambassador/brokerages-quotes'
@@ -46,8 +45,7 @@ const WhaleAmbassadorInvited = () => {
       />
       <div className="space-y-16 md:space-y-20 pb-16 md:pb-20">
         <InvitedTopBanner name={name} code={code} />
-        <InvitedFormWithTitle referCode={code} name={name} />
-        <HomeTeamsInfo className="bg-[#F7F6F9] py-16 md:py-20" />
+        <HomeTeamsInfo itemStyle={{ backgroundColor: '#fff' }} className="bg-[#F7F6F9] py-16 md:py-20" />
         <HomeSolutionSwiper
           className="py-0 bg-white"
           showLabel={false}

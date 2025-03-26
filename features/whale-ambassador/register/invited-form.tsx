@@ -239,9 +239,15 @@ export const InvitedForm = ({
           loading={loading}
           block
           type="primary"
-          className={classNames('py-2 h-auto', {
-            ['!bg-[#C5A4FA] !text-front-bg-color1']: !allowSubmit && useDefaultStyle,
-          })}
+          style={
+            !allowSubmit && useDefaultStyle
+              ? {
+                  backgroundColor: '#C5A4FA',
+                  color: '#fff',
+                }
+              : {}
+          }
+          className={classNames('py-2 h-auto')}
           htmlType="submit"
           onClick={handleFinish}
         >
@@ -274,16 +280,18 @@ export const InvitedFormModal = ({ referCode, name }: InvitedFormProps) => {
 export const InvitedFormWithTitle = ({ referCode, name }: InvitedFormProps) => {
   const { t } = useTranslation('common')
   return (
-    <Block id="invited-form-block" className="hidden md:block max-w-[880px] mx-auto bg-[#F7F6F9] py-11">
-      <div className="flex flex-col md:mb-8">
-        <h2 className=" text-text-color-1 text-3xl md:text-4xl font-semibold mb-1">
-          {t('whale-ambassador.top-banner.invited.form-title')}
-        </h2>
-        <p className="text-base leading-[1.75em] text-text-color-1-supplement font-normal">
-          {t('whale-ambassador.invited-form.description')}
-        </p>
+    <Block id="invited-form-block" className="hidden md:block max-w-[1200px] mx-auto bg-[#F7F6F9] py-11">
+      <div className=" max-w-[880px] mx-auto">
+        <div className="flex flex-col md:mb-8">
+          <h2 className=" text-text-color-1 text-3xl md:text-4xl font-semibold mb-1">
+            {t('whale-ambassador.top-banner.invited.form-title')}
+          </h2>
+          <p className="text-base leading-[1.75em] text-text-color-1-supplement font-normal">
+            {t('whale-ambassador.invited-form.description')}
+          </p>
+        </div>
+        <InvitedForm useDefaultStyle referCode={referCode} name={name} />
       </div>
-      <InvitedForm useDefaultStyle referCode={referCode} name={name} />
     </Block>
   )
 }

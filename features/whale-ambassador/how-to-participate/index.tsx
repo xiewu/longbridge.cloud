@@ -87,7 +87,7 @@ export const HowToParticipate = () => {
         <div className="mt-10">
           <BecomeAmbassadorButton
             form="推荐官计划主页"
-            className="px-6 md:px-8 text-brand_color bg-white border-none py-2.5 h-auto font-medium text-sm  md:text-lg"
+            className="px-6 md:px-8 text-brand_color bg-white border-none py-2.5 h-auto font-medium text-sm  md:text-base"
           >
             {t('whale-ambassador.how-to-participate.button')}
           </BecomeAmbassadorButton>

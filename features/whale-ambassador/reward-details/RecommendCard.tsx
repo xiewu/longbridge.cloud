@@ -27,7 +27,7 @@ export const RecommendCard = () => {
                 i18nKey="whale-ambassador.starting-more-referrals"
                 components={{
                   amount: <span className={classNames('text-5xl md:text-[54px] -tracking-[4px]', styles.amount)} />,
-                  currency: <span className="text-xl font-bold text-brand_color ml-2" />,
+                  currency: <span className="text-xl font-bold ml-2" />,
                 }}
               />
             </div>

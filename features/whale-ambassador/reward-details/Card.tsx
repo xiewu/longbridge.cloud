@@ -12,7 +12,7 @@ export const Card = (props: CardProps) => {
     <div
       {...restProps}
       className={classNames(
-        'flex flex-col rounded-lg px-4 pt-4 md:px-8 md:pt-8 bg-[#F6EFFF]  border border-border_color relative',
+        'flex flex-col rounded-lg px-4 pt-4 md:px-8 md:pt-8 bg-[#F6EFFF]  border-border_color relative',
         className
       )}
     >

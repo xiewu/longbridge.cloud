@@ -41,7 +41,22 @@ export const FAQ = () => {
     },
     {
       title: t('whale-ambassador.faq.q7.title'),
-      content: t('whale-ambassador.faq.q7.content'),
+      content: (
+        <Trans
+          t={t}
+          i18nKey="whale-ambassador.faq.q7.content"
+          components={{
+            linkText: (
+              <a
+                className="text-brand_color"
+                href={t('whale-ambassador.terms-and-conditions-url')}
+                target="_blank"
+                rel="noopener noreferrer"
+              />
+            ),
+          }}
+        />
+      ),
     },
     {
       title: t('whale-ambassador.faq.q8.title'),

@@ -43,7 +43,18 @@ export const SendInviteLink = () => {
         </Button>
       </Modal>
       <a className="ml-1  border-none text-sm md:text-base h-auto text-white" onClick={() => setOpen(true)}>
-        <span className="underline">{t('whale-ambassador.get-invite-link')}</span>
+        <span
+          style={{
+            textDecorationLine: 'underline',
+            textDecorationStyle: 'solid',
+            textDecorationSkipInk: 'none',
+            textDecorationThickness: 'auto',
+            textUnderlineOffset: 'auto',
+            textUnderlinePosition: 'from-font',
+          }}
+        >
+          {t('whale-ambassador.get-invite-link')}
+        </span>
       </a>
     </>
   )

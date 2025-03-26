@@ -12,6 +12,7 @@ import HomeTeamsInfo from '@/features/home/home-teams-info'
 import HomeSolutionSwiper from '@/features/home/home-solution-swiper'
 import { BrokeragesQuotes } from '@/features/whale-ambassador/brokerages-quotes'
 import { InvitedFooter } from '@/features/whale-ambassador/invited-footer'
+import HomeNewExamples from '@/features/home/home-examples'
 
 export const getStaticPaths = () => ({
   fallback: false,
@@ -50,8 +51,9 @@ const WhaleAmbassadorInvited = () => {
           className="py-0 bg-white"
           showLabel={false}
           title={t('whale-ambassador.top-banner.invited.title-2')}
+          needContact={false}
         />
-        <BrokeragesQuotes />
+        <HomeNewExamples />
         <InvitedFooter referCode={code} name={name} />
       </div>
     </Layout>

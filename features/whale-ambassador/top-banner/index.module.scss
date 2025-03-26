@@ -2,9 +2,9 @@ $top-banner-bg-image: 'https://assets.lbctrl.com/uploads/b4e6339f-8a83-414d-ab5b
 $top-banner-bg-color: #0c094f;
 
 :local(.top-banner) {
-  background: center / 180% auto no-repeat url($top-banner-bg-image), $top-banner-bg-color;
+  background: bottom 35% center / 180% auto no-repeat url($top-banner-bg-image), $top-banner-bg-color;
   @media (min-width: 440px) {
-    background: center / 835px auto no-repeat url($top-banner-bg-image), $top-banner-bg-color;
+    background: bottom 100px center / 835px auto no-repeat url($top-banner-bg-image), $top-banner-bg-color;
   }
 
   @media (min-width: 1024px) {

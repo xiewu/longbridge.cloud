@@ -26,6 +26,8 @@ export const RecommendForm = ({ onSuccess, referCode }: RecommendFormProps) => {
   const { t } = useTranslation('common')
   const serviceOptions = useServiceOptions()
 
+  console.log('service', service, otherService)
+
   const handleFinish = async () => {
     setLoading(true)
     try {
@@ -72,7 +74,7 @@ export const RecommendForm = ({ onSuccess, referCode }: RecommendFormProps) => {
           required
           rules={[{ required: true, whitespace: true }]}
         >
-          <Input placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.contact-name') })} />
+          <Input placeholder={t('whale-ambassador.input-placeholder', t('whale-ambassador.contact-name'))} />
         </Form.Item>
         <Form.Item
           name="position"

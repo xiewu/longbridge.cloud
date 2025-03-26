@@ -58,17 +58,17 @@ export enum ReferWay {
 
 export enum Service {
   /** 互联网 App+ 解决方案 */
-  INTERNET_APP_PLUS = 1,
+  INTERNET_APP_PLUS = '1',
   /** 柜台系统解决方案 */
-  DESK_SYSTEM = 2,
+  DESK_SYSTEM = '2',
   /** 美股及美股期权解决方案 */
-  US_STOCK_AND_OPTIONS = 3,
+  US_STOCK_AND_OPTIONS = '3',
   /** 财富管理解决方案 */
-  WEALTH_MANAGEMENT = 4,
+  WEALTH_MANAGEMENT = '4',
   /** 虚拟资产解决方案 */
-  VIRTUAL_ASSET = 5,
+  VIRTUAL_ASSET = '5',
   /** 其他 */
-  OTHER = 6,
+  OTHER = '6',
 }
 
 // 被推荐人状态枚举

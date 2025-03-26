@@ -38,9 +38,9 @@ export const RecommendForm = ({ onSuccess, referCode }: RecommendFormProps) => {
         agree_share: agree,
         refer_way: ReferWay.REFERRER_REPORT,
       })
-      onSuccess?.(values)
       toast.success(t('whale-ambassador.submit-success'))
       form.resetFields()
+      onSuccess?.(values)
       setAgree(false)
     } finally {
       setLoading(false)

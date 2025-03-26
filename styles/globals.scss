@@ -75,6 +75,11 @@ body {
   border-color: var(--brand_color);
   box-shadow: 0 0 0 2px rgba(86, 34, 207, 0.2);
 }
+
+.ant-btn {
+  border-radius: 0px;
+}
+
 .ant-btn:hover,
 .ant-btn:focus {
   color: var(--brand_color);

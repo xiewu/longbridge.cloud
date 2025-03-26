@@ -1,11 +1,16 @@
-:local(.top-banner) {
-  background: center / 180% auto no-repeat
-      url('https://assets.lbctrl.com/uploads/b4e6339f-8a83-414d-ab5b-c92100184f83/af0c65b32904c9c5bd48dd8554f1ee78.png'),
-    #0c094f;
+$top-banner-bg-image: 'https://assets.lbctrl.com/uploads/b4e6339f-8a83-414d-ab5b-c92100184f83/af0c65b32904c9c5bd48dd8554f1ee78.png';
+$top-banner-bg-color: #0c094f;
 
-  @media (min-width: 768px) {
-    background: right -50px center / contain no-repeat url('https://assets.lbctrl.com/uploads/b4e6339f-8a83-414d-ab5b-c92100184f83/af0c65b32904c9c5bd48dd8554f1ee78.png'),
-      #0c094f;
+:local(.top-banner) {
+  background: center / 180% auto no-repeat url($top-banner-bg-image), $top-banner-bg-color;
+  @media (min-width: 440px) {
+    background: center / 835px auto no-repeat url($top-banner-bg-image), $top-banner-bg-color;
+  }
+
+  @media (min-width: 1024px) {
+    background: right calc(calc(max(calc(100vw - 1200px), 0px) / 2) - 200px) center / contain no-repeat
+        url($top-banner-bg-image),
+      $top-banner-bg-color;
   }
 }
 

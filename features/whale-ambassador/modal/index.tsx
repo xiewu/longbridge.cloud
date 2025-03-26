@@ -30,14 +30,13 @@ export const Modal = (props: ModalProps) => {
                 )}
               >
                 {title && (
-                  // 首字母大写 tailwind
                   <h2 className="  capitalize  md:ml-0 md:mr-auto items-start text-lg my-2 md:my-0 md:text-xl md:w-full font-medium">
                     {title}
                   </h2>
                 )}
                 <Button
                   className={classNames(
-                    'absolute md:static left-6 p-0 h-5 w-5 !border-transparent active:border-brand_color  hover:opacity-60',
+                    'whale-modal-close-btn flex items-center justify-center absolute md:static left-6 p-0 h-5 w-5 !border-transparent active:border-brand_color  hover:opacity-60',
                     {
                       'md:mr-0 md:ml-auto': !title,
                     }

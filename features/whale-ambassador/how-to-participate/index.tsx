@@ -41,7 +41,7 @@ const stepList = [
 const Step = ({ titleKey, descriptionKey, icon, stepName }: StepProps) => {
   const { t } = useTranslation('common')
   return (
-    <div className="flex flex-1 flex-col gap-5  group ">
+    <div className="flex flex-1 flex-col gap-5 md:pr-3  group ">
       <div>
         <div className="text-base font-semibold text-front-bg-color">{t(stepName)}</div>
       </div>

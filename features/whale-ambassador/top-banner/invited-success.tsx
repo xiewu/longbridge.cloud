@@ -23,12 +23,12 @@ export const InvitedSuccessTopBanner = ({ name, code }: InvitedTopBannerProps) =
           <div className={classNames('h-full flex justify-start lg:items-center max-w-[1200px] mx-4')}>
             <div className="main-content-width w-full h-full flex items-start  lg:items-center">
               <div className="space-y-8 lg:space-y-10 flex-1 flex flex-col justify-center">
-                <div className="text-front-bg-color1 flex flex-col gap-3  items-center lg:items-start ">
+                <div className="text-front-bg-color1 flex flex-col gap-4  items-center lg:items-start ">
                   <h1 className="text-front-bg-color1 font-semibold text-xl lg:text-2xl">
                     <span>{name}</span>
                     <span className="ml-3">{t('whale-ambassador.top-banner.invited.title')}</span>
                   </h1>
-                  <h2 className="text-4xl lg:text-[54px] lg:max-w-[40%] text-center leading-normal lg:text-left text-front-bg-color1 font-semibold ">
+                  <h2 className="text-4xl lg:text-[54px] lg:max-w-[40%] text-center leading-[1.4] lg:text-left text-front-bg-color1 font-semibold ">
                     {t('whale-ambassador.top-banner.invited.success')}
                   </h2>
                   <p className="text-base lg:text-2xl] text-center lg:text-left lg:max-w-max">

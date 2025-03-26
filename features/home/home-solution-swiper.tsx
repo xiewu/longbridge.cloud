@@ -12,9 +12,10 @@ interface HomeSolutionSwiperProps {
   className?: string
   showLabel?: boolean
   title?: string
+  needContact?: boolean
 }
 
-const HomeSolutionSwiper = ({ className, showLabel = true, title }: HomeSolutionSwiperProps) => {
+const HomeSolutionSwiper = ({ className, showLabel = true, title, needContact = true }: HomeSolutionSwiperProps) => {
   const i18n = useTranslation('common')
   const dataSource = useMemo(() => {
     return [
@@ -128,9 +129,11 @@ const HomeSolutionSwiper = ({ className, showLabel = true, title }: HomeSolution
                   <ImageAndText
                     {...tab.contentInfo}
                     needContact={
-                      <div className="mt-10">
-                        <ContactUsBorder />
-                      </div>
+                      needContact ? (
+                        <div className="mt-10">
+                          <ContactUsBorder />
+                        </div>
+                      ) : undefined
                     }
                   />
                 </div>

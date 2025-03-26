@@ -149,24 +149,14 @@ export const InvitedForm = ({
             placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.invited-form.area') })}
           />
         </Form.Item>
-        <Form.Item
-          name="appointmentDate"
-          label={t('whale-ambassador.invited-form.appointment-date')}
-          required
-          rules={[{ required: true }]}
-        >
+        <Form.Item name="appointmentDate" label={t('whale-ambassador.invited-form.appointment-date')}>
           <DatePicker
             className="w-full"
             format="l"
             placeholder={t('whale-ambassador.invited-form.select-placeholder')}
           />
         </Form.Item>
-        <Form.Item
-          name="appointmentTime"
-          label={t('whale-ambassador.invited-form.appointment-time')}
-          required
-          rules={[{ required: true }]}
-        >
+        <Form.Item name="appointmentTime" label={t('whale-ambassador.invited-form.appointment-time')}>
           <TimePicker
             className="w-full"
             placeholder={t('whale-ambassador.invited-form.select-placeholder')}
@@ -266,13 +256,17 @@ export const InvitedFormModal = ({ referCode, name }: InvitedFormProps) => {
       <Modal title={t('whale-ambassador.top-banner.invited.form-title')} open={open} onClose={() => setOpen(false)}>
         <InvitedForm referCode={referCode} name={name} />
       </Modal>
-      <Button
-        type="primary"
-        className="block md:hidden w-full text-white py-2.5 h-auto font-medium"
-        onClick={() => setOpen(true)}
-      >
-        {t('whale-ambassador.top-banner.invited.button')}
-      </Button>
+      <div className="bg-white  fixed bottom-0 left-0 w-full flex  justify-center">
+        <div className="py-4 mb-safe-bottom">
+          <Button
+            type="primary"
+            className="block md:hidden w-[calc(100vw-32px)] text-white py-2.5 h-auto font-medium"
+            onClick={() => setOpen(true)}
+          >
+            {t('whale-ambassador.top-banner.invited.button')}
+          </Button>
+        </div>
+      </div>
     </div>
   )
 }
@@ -286,9 +280,6 @@ export const InvitedFormWithTitle = ({ referCode, name }: InvitedFormProps) => {
           <h2 className=" text-text-color-1 text-3xl md:text-4xl font-semibold mb-1">
             {t('whale-ambassador.top-banner.invited.form-title')}
           </h2>
-          <p className="text-base leading-[1.75em] text-text-color-1-supplement font-normal">
-            {t('whale-ambassador.invited-form.description')}
-          </p>
         </div>
         <InvitedForm useDefaultStyle referCode={referCode} name={name} />
       </div>

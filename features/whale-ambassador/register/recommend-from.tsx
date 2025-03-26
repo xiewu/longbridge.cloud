@@ -101,9 +101,8 @@ export const RecommendForm = ({ onSuccess, referCode }: RecommendFormProps) => {
         <Form.Item
           name="office_phone"
           label={t('whale-ambassador.office-phone')}
-          required
           validateFirst
-          rules={[{ required: true, whitespace: true }, validatePhoneNumberRule]}
+          rules={[validatePhoneNumberRule]}
           validateTrigger={['onComplete', 'onChange']}
         >
           <PhoneNumberInput

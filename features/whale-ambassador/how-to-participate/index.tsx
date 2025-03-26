@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import { Block } from '../block'
 import { BecomeAmbassadorButton } from '../become-ambassador-button'
-import { useTranslation } from 'next-i18next'
+import { useTranslation, Trans } from 'next-i18next'
 import classNames from 'classnames'
 import styles from './index.module.scss'
 interface StepProps {
@@ -51,7 +51,9 @@ const Step = ({ titleKey, descriptionKey, icon, stepName }: StepProps) => {
       </div>
       <div className="flex flex-col gap-2 md:gap-3">
         <h3 className="font-medium text-front-bg-color text-xl">{t(titleKey)}</h3>
-        <p className="text-sm md:text-base text-front-bg-color opacity-70">{t(descriptionKey)}</p>
+        <p className="text-sm md:text-base text-front-bg-color opacity-70">
+          <Trans i18nKey={descriptionKey} components={{ b: <span className="  font-black" /> }} />
+        </p>
       </div>
     </div>
   )

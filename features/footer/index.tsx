@@ -92,15 +92,15 @@ const Footer: FC = () => {
     return { frontSell, sellEnd, cooperation, aboutUs }
   }, [])
 
-  const fetchLegalTerms = async () => {
-    const key = 'legal_terms'
-    const data = await getSupportLinks()
-    setLegalTermsUrl(data.urls[key])
-  }
+  // const fetchLegalTerms = async () => {
+  //   const key = 'legal_terms'
+  //   const data = await getSupportLinks()
+  //   setLegalTermsUrl(data.urls[key])
+  // }
 
-  useAsyncEffect(async () => {
-    await fetchLegalTerms()
-  }, [getBasenameLocale()])
+  // useAsyncEffect(async () => {
+  //   await fetchLegalTerms()
+  // }, [getBasenameLocale()])
 
   useMount(() => {
     const isCN = window.location.hostname.includes('.cn')

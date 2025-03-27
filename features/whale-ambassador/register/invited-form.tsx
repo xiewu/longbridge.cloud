@@ -256,11 +256,11 @@ export const InvitedFormModal = ({ referCode, name }: InvitedFormProps) => {
       <Modal title={t('whale-ambassador.top-banner.invited.form-title')} open={open} onClose={() => setOpen(false)}>
         <InvitedForm referCode={referCode} name={name} />
       </Modal>
-      <div className="bg-white  fixed bottom-0 left-0 w-full flex  justify-center">
+      <div className="bg-white  flex md:hidden fixed bottom-0 left-0 w-full  justify-center">
         <div className="py-4 mb-safe-bottom">
           <Button
             type="primary"
-            className="block md:hidden w-[calc(100vw-32px)] text-white py-2.5 h-auto font-medium"
+            className="w-[calc(100vw-32px)] text-white py-2.5 h-auto font-medium"
             onClick={() => setOpen(true)}
           >
             {t('whale-ambassador.top-banner.invited.button')}

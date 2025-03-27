@@ -274,7 +274,10 @@ export const InvitedFormModal = ({ referCode, name }: InvitedFormProps) => {
 export const InvitedFormWithTitle = ({ referCode, name }: InvitedFormProps) => {
   const { t } = useTranslation('common')
   return (
-    <Block id="invited-form-block" className="hidden md:block max-w-[1200px] mx-auto bg-[#F7F6F9] py-11">
+    <Block
+      id="invited-form-block"
+      className="hidden md:block max-w-[1200px] mx-auto border rounded-lg border-[#f3f3f3] [box-shadow:_0px_8px_32px_0px_rgba(0,_0,_0,_0.04)] bg-white py-11"
+    >
       <div className=" max-w-[880px] mx-auto">
         <div className="flex flex-col md:mb-8">
           <h2 className=" text-text-color-1 text-3xl md:text-4xl font-semibold mb-1">

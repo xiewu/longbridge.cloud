@@ -22,7 +22,7 @@ export const RecommendCard = () => {
         <div className="flex-1 h-full flex flex-col justify-between">
           <div className="mb-7">
             <div className="text-sm mb-7 font-semibold">{t('whale-ambassador.starting-more-referrals-sub')}</div>
-            <div>
+            <div className="-ml-[1px] md:-ml-[3px]">
               <Trans
                 i18nKey="whale-ambassador.starting-more-referrals"
                 components={{

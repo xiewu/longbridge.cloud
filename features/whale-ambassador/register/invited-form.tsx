@@ -46,8 +46,8 @@ export const InvitedForm = ({
   const navigate = useNavigate()
 
   const allowSubmit = useMemo(() => {
-    return agreePrivacy && shareEmail
-  }, [agreePrivacy, shareEmail])
+    return agreePrivacy
+  }, [agreePrivacy])
 
   const handleFinish = async () => {
     setLoading(true)

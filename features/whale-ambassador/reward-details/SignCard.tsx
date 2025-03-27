@@ -20,7 +20,7 @@ export const SignCard = () => {
       <div className="flex flex-col md:flex-row  lg:flex-col h-full justify-between  md:gap-x-20 md:items-center lg:items-start">
         <div>
           <div className="text-sm mb-4 font-semibold">{t('whale-ambassador.sign-reward-sub')}</div>
-          <div className="text-brand_color flex-bold  mb-8">
+          <div className="text-brand_color flex-bold  mb-8 -ml-1 md:-ml-[10px]">
             <Trans
               i18nKey="whale-ambassador.sign-reward-amount"
               components={{

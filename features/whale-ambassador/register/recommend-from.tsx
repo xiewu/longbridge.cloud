@@ -91,7 +91,7 @@ export const RecommendForm = ({ onSuccess, referCode }: RecommendFormProps) => {
           label={t('whale-ambassador.mobile-phone')}
           required
           validateFirst
-          rules={[{ required: true, whitespace: true }, validatePhoneNumberRule]}
+          rules={[{ required: true, whitespace: true }, { ...validatePhoneNumberRule }]}
           validateTrigger={['onComplete', 'onChange']}
         >
           <PhoneNumberInput
@@ -128,7 +128,7 @@ export const RecommendForm = ({ onSuccess, referCode }: RecommendFormProps) => {
           required
           rules={[{ required: true, whitespace: true }]}
         >
-          <Input placeholder={t('whale-ambassador.input-placeholder', { label: t('whale-ambassador.company-area') })} />
+          <Input placeholder={t('whale-ambassador.input-city-placeholder')} />
         </Form.Item>
         <Form.Item
           className="!mb-2"

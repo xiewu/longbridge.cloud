@@ -69,7 +69,7 @@ export const FAQ = () => {
   ]
 
   return (
-    <Block className={classNames(styles.faq, 'pb-16 border-b')}>
+    <Block className={classNames(styles.faq, 'border-b')}>
       <div className="flex flex-col">
         <h2 className="mb-6 md:mb-10 text-text-color-1 text-[28px]  md:text-4xl font-semibold">FAQ</h2>
       </div>

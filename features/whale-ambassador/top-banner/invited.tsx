@@ -87,7 +87,7 @@ export const InvitedTopBanner = ({ name, code }: InvitedTopBannerProps) => {
                     <div className="flex justify-center flex-1">
                       <img
                         className=" w-[250px] md:w-full self-center"
-                        src="https://assets.lbctrl.com/uploads/3c211acc-fc07-4026-9d79-a3c1fe297865/6c42a2379024ee94e2da635bc2f5498c.png"
+                        src={t('whale-ambassador.top-banner.invited.banner-img')}
                         alt="whale"
                       />
                     </div>

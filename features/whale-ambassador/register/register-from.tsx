@@ -97,7 +97,7 @@ export const RegisterFrom = (props: RegisterFromProps) => {
         >
           <Input
             placeholder={t('whale-ambassador.input-placeholder', {
-              label: t('whale-ambassador.email-verification-code'),
+              label: t('whale-ambassador.email'),
             })}
           />
         </Form.Item>

@@ -65,12 +65,16 @@ const validatePhoneNumber = (phoneNumber: string, countryCode: string) => {
 }
 
 export const validatePhoneNumberRule: FormRule = {
-  validator: (rule, value, callback) => {
+  validator: async (rule, value) => {
     const [countryCode, phoneNumber] = value?.split('-') || []
-    if (!validatePhoneNumber(phoneNumber, countryCode)) {
-      return callback(i18n?.t('whale-ambassador.invalid-phone-number'))
+
+    if (!countryCode || !phoneNumber) {
+      return Promise.resolve()
     }
-    return callback()
+
+    if (!validatePhoneNumber(phoneNumber, countryCode)) {
+      return Promise.reject(i18n?.t('whale-ambassador.invalid-phone-number'))
+    }
   },
   validateTrigger: ['onComplete'],
 }
@@ -80,9 +84,9 @@ export const PhoneNumberInput = (props: PhoneNumberInputProps) => {
   const [countryCodeList, setCountryCodeList] = useState<{ label: string; value: string }[]>([])
   const selectRef = useRef<RefSelectProps>(null)
   const inputRef = useRef<InputRef>(null)
+  const [countryCode, setCountryCode] = useState(getDialCode(isServer() ? '' : navigator.language) || '852')
 
-  const [originCountryCode, phoneNumber] = value?.split('-') || []
-  const countryCode = originCountryCode || getDialCode(isServer() ? '' : navigator.language) || '852'
+  const phoneNumber = value?.split('-')[1] || ''
 
   const handleChange = useCallback(
     (value: string) => {
@@ -96,15 +100,22 @@ export const PhoneNumberInput = (props: PhoneNumberInputProps) => {
   )
 
   const handleCountryCodeChange = useCallback(
-    (value: string) => {
-      handleChange([value, phoneNumber].join('-'))
+    (code: string) => {
+      const [, phoneNumber] = value?.split('-') || []
+      if (phoneNumber) {
+        const nextValue = [code, phoneNumber].join('-')
+        handleChange(nextValue)
+      }
+      setCountryCode(code)
     },
-    [handleChange, phoneNumber]
+    [handleChange, value]
   )
 
   const handlePhoneNumberChange = useCallback(
     (value: string) => {
-      handleChange([countryCode, value].join('-'))
+      console.log('handlePhoneNumberChange', countryCode, value)
+      const nextValue = value ? [countryCode, value].join('-') : ''
+      handleChange(nextValue)
     },
     [handleChange, countryCode]
   )

@@ -122,9 +122,9 @@ function useNavs() {
         value: '/whale-ambassador',
         suffix: '',
         label: (
-          <span>
+          <span className="inline-flex items-center">
             <span>{i18n.t('header_nav_010')}</span>
-            <span className=" py-[1px] text-[12px] leading-[18px] ml-2  text-[#CA8123] border border-[#FCF2D3] bg-[#FEFAEE] px-1">
+            <span className="text-[12px] leading-[18px] ml-2  text-[#CA8123] border border-[#FCF2D3] bg-[#FEFAEE] px-1">
               New
             </span>
           </span>

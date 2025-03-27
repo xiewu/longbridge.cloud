@@ -15,8 +15,8 @@ $top-banner-bg-color: #0c094f;
 }
 
 :local(.invited-top-banner) {
-  background: url('https://assets.lbctrl.com/uploads/49a32093-a031-4f5f-b6f8-e6d339bab82d/c4064eeab000d6b1ca8b87ea62bfeba4.png')
-    center center / cover no-repeat;
+  background: url('https://assets.lbctrl.com/uploads/cebdd4b6-9582-48f5-9025-8ef3a0d6059d/bg2.png') center center /
+    cover no-repeat;
   @media (min-width: 768px) {
     background: url('https://assets.lbctrl.com/uploads/cebdd4b6-9582-48f5-9025-8ef3a0d6059d/bg2.png') top center / 100%
       auto no-repeat;

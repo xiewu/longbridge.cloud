@@ -49,13 +49,8 @@ export const InvitedTopBanner = ({ name, code }: InvitedTopBannerProps) => {
 
   return (
     <TopBlock className={classNames('flex md:items-center')}>
-      <div className="flex-1 space-y-20">
-        <div
-          className={classNames(
-            'xl:px-[100px] flex-1 py-16 pt-8 md:pt-20 md:pb-4 h-full',
-            styles['invited-top-banner']
-          )}
-        >
+      <div className={classNames('flex-1 space-y-20', styles['invited-top-banner'])}>
+        <div className={classNames('xl:px-[100px] flex-1 py-16 pt-8 md:pt-20 md:pb-4 h-full')}>
           <div className="h-full max-w-[1232px] mx-auto">
             <div className={classNames('h-full flex justify-start md:items-center max-w-[1200px] mx-4')}>
               <div className="main-content-width w-full ">

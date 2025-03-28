@@ -2,6 +2,10 @@
 @import './theme.scss';
 @import './antd-variable.scss';
 
+:root {
+  interpolate-size: allow-keywords; /* 👈 */
+}
+
 /* 中文里面文字左右对齐 */
 html:not([lang='en']) {
   text-align: justify;

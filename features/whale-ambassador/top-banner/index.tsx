@@ -14,11 +14,11 @@ export const TopBanner = () => {
           <div className={classNames('h-full flex  justify-start lg:items-center max-w-[1200px] mx-4')}>
             <div className="main-content-width w-full ">
               <div className={classNames('w-full px-4 lg:px-0 flex flex-col justify-between h-full')}>
-                <div className={'space-y-3 text-center lg:text-left'}>
+                <div className={'space-y-3  text-center lg:text-left'}>
                   <h1 className=" text-[#AFB3B6] font-semibold text-base lg:text-3xl">
                     {t('whale-ambassador.program-title')}
                   </h1>
-                  <p className=" text-front-bg-color1 font-bold text-3xl lg:text-[60px] lg:leading-normal">
+                  <p className=" text-front-bg-color1 font-bold text-3xl lg:text-[48px] max-lg:text-[60px] lg:leading-normal">
                     {t('whale-ambassador.program-subtitle')}
                   </p>
                   <BecomeAmbassadorButton

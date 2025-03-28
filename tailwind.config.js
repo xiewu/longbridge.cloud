@@ -9,6 +9,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'max-lg': '1200px',
+      },
       colors: {
         ...themeReplacements(),
       },
